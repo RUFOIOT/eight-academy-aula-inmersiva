@@ -6,36 +6,22 @@
   <title>Aula Inmersiva Eight Academy · Análisis de Decisión</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --navy:     #0D1B3E;
-      --navy2:    #1A2F5A;
-      --gold:     #C9A84C;
-      --gold2:    #E8C97A;
-      --green:    #059669;
-      --green-bg: #ECFDF5;
-      --green-br: #6EE7B7;
-      --red:      #DC2626;
-      --red-bg:   #FEF2F2;
-      --amber:    #D97706;
-      --amber-bg: #FFFBEB;
-      --blue:     #2563EB;
-      --blue-bg:  #EFF6FF;
-      --purple:   #7C3AED;
-      --pur-bg:   #F5F3FF;
-      --white:    #FFFFFF;
-      --g50:      #F9FAFB;
-      --g100:     #F3F4F6;
-      --g200:     #E5E7EB;
-      --g400:     #9CA3AF;
-      --g600:     #4B5563;
-      --g800:     #1F2937;
-      --r: 12px;
+    :root{
+      --navy:#0D1B3E;--navy2:#1A2F5A;--gold:#C9A84C;--gold2:#E8C97A;
+      --green:#059669;--green-bg:#ECFDF5;--green-br:#6EE7B7;
+      --red:#DC2626;--red-bg:#FEF2F2;
+      --amber:#D97706;--amber-bg:#FFFBEB;
+      --blue:#2563EB;--blue-bg:#EFF6FF;
+      --purple:#7C3AED;--pur-bg:#F5F3FF;
+      --teal:#0D9488;--teal-bg:#F0FDFA;
+      --white:#FFFFFF;
+      --g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;--g400:#9CA3AF;--g600:#4B5563;--g800:#1F2937;
+      --r:12px;
     }
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{font-family:'Montserrat',sans-serif;background:var(--g50);color:var(--navy);line-height:1.65;}
 
-    /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:999;height:58px;
         background:rgba(13,27,62,0.97);backdrop-filter:blur(14px);
         display:flex;align-items:center;padding:0 2rem;gap:1rem;
@@ -50,7 +36,6 @@
           padding:.15rem .5rem;border-radius:4px;letter-spacing:.06em;}
     @media(max-width:700px){.nv{display:none;}}
 
-    /* HERO */
     .hero{min-height:88vh;
           background:linear-gradient(140deg,var(--navy) 0%,#0A2545 50%,#0D3B5E 100%);
           display:flex;align-items:center;justify-content:center;
@@ -78,22 +63,17 @@
     .hs-n{font-size:1.5rem;font-weight:800;color:var(--gold);display:block;}
     .hs-l{font-size:.62rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;}
 
-    /* LAYOUT */
     .wrap{max-width:1060px;margin:0 auto;padding:0 1.5rem;}
     .sec{padding:4rem 0;}
     .bg-w{background:var(--white);}
     .bg-g{background:var(--g100);}
     .bg-n{background:var(--navy);}
 
-    /* SECTION HEADER */
     .sh{text-align:center;margin-bottom:2.5rem;}
     .sh-e{font-size:.63rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.55rem;}
     .sh-t{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--navy);line-height:1.2;}
     .sh-s{font-size:.85rem;color:var(--g400);margin-top:.5rem;max-width:540px;margin-left:auto;margin-right:auto;}
-    .sh-light .sh-t{color:var(--white);}
-    .sh-light .sh-s{color:rgba(255,255,255,.5);}
 
-    /* CARDS */
     .card{background:var(--white);border-radius:var(--r);border:1px solid var(--g200);padding:1.4rem;
           transition:box-shadow .25s,transform .25s;}
     .card:hover{box-shadow:0 6px 28px rgba(13,27,62,.11);transform:translateY(-2px);}
@@ -102,27 +82,27 @@
     .card.re{border-left:4px solid var(--red);}
     .card.bl{border-left:4px solid var(--blue);}
     .card.pu{border-left:4px solid var(--purple);}
+    .card.tl{border-left:4px solid var(--teal);}
     .ci{font-size:1.6rem;margin-bottom:.65rem;}
     .ct{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.3rem;}
     .cb{font-size:.78rem;color:var(--g600);line-height:1.6;}
 
-    /* GRIDS */
     .g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;}
-    .g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;}
+    .g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.1rem;}
     .g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;}
 
-    /* ALERT */
     .alert{border-radius:var(--r);padding:1rem 1.2rem;
            display:flex;gap:.8rem;margin-bottom:1.2rem;align-items:flex-start;}
     .alert.warn{background:var(--amber-bg);border:1px solid #FCD34D;}
     .alert.info{background:var(--blue-bg);border:1px solid #BFDBFE;}
     .alert.ok  {background:var(--green-bg);border:1px solid var(--green-br);}
     .alert.crit{background:var(--red-bg);border:1px solid #FCA5A5;}
+    .alert.teal{background:var(--teal-bg);border:1px solid #5EEAD4;}
     .ai{font-size:1rem;flex-shrink:0;}
     .at{font-size:.8rem;line-height:1.55;}
     .at strong{font-weight:700;display:block;margin-bottom:.15rem;}
 
-    /* COMPARE TABLE */
+    /* TABLE */
     .ctbl{overflow-x:auto;border-radius:var(--r);border:1px solid var(--g200);}
     table{width:100%;border-collapse:collapse;background:var(--white);}
     th{background:var(--navy);color:var(--gold);padding:.75rem 1rem;
@@ -137,18 +117,16 @@
     .tie{background:#FFFBEB !important;color:#92400E;}
     .score-big{font-size:1.3rem;font-weight:900;}
 
-    /* BUDGET LINES */
+    /* BUDGET */
     .bline{display:flex;align-items:center;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--g200);}
     .bline:last-child{border-bottom:none;}
     .bline-ico{font-size:1.1rem;flex-shrink:0;}
     .bline-label{flex:1;font-size:.82rem;color:var(--g800);}
     .bline-label span{display:block;font-size:.72rem;color:var(--g400);}
     .bline-amount{font-size:.88rem;font-weight:700;color:var(--navy);white-space:nowrap;}
-    .bline-note{font-size:.65rem;color:var(--g400);white-space:nowrap;}
+    .bline.included .bline-amount{color:var(--green);}
     .section-divider{background:var(--g50);padding:.5rem 1rem;margin:.75rem -1.4rem;
                      font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g400);}
-
-    /* BUDGET CARD */
     .bcard{background:var(--white);border-radius:var(--r);border:1px solid var(--g200);padding:1.4rem;}
     .bcard-head{padding:.5rem 1rem;border-radius:8px;margin-bottom:1rem;text-align:center;}
     .bcard-head h3{font-size:.92rem;font-weight:800;margin-bottom:.15rem;}
@@ -163,22 +141,9 @@
     .warn-badge{display:inline-block;background:var(--amber);color:var(--white);
                 font-size:.6rem;font-weight:800;padding:.2rem .6rem;border-radius:4px;
                 letter-spacing:.06em;text-transform:uppercase;margin-top:.4rem;}
-
-    /* DECISION MATRIX */
-    .dm-row{display:flex;gap:.75rem;margin-bottom:.75rem;align-items:stretch;}
-    .dm-label{width:180px;flex-shrink:0;font-size:.75rem;font-weight:700;color:var(--g800);
-              background:var(--white);border:1px solid var(--g200);border-radius:8px;
-              padding:.6rem .85rem;display:flex;align-items:center;}
-    .dm-bars{flex:1;display:flex;gap:.5rem;align-items:stretch;}
-    .dm-bar{flex:1;border-radius:8px;padding:.6rem .85rem;display:flex;flex-direction:column;
-            justify-content:center;align-items:center;gap:.2rem;min-height:52px;}
-    .dm-bar .score{font-size:1.1rem;font-weight:900;}
-    .dm-bar .lbl{font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.8;}
-    .dm-bar.A1{background:#FEF3C7;}
-    .dm-bar.A2{background:#FEF9EC;}
-    .dm-bar.B{background:var(--blue-bg);}
-    .dm-bar.H{background:var(--green-bg);}
-    .dm-bar.winner{border:2px solid var(--green);background:var(--green-bg);}
+    .teal-badge{display:inline-block;background:var(--teal);color:var(--white);
+                font-size:.6rem;font-weight:800;padding:.2rem .6rem;border-radius:4px;
+                letter-spacing:.06em;text-transform:uppercase;margin-top:.4rem;}
 
     /* OBRAS */
     .obra-card{background:var(--white);border-radius:var(--r);border:1px solid var(--g200);
@@ -196,19 +161,20 @@
     .oi-range{color:var(--g600);font-weight:600;white-space:nowrap;}
     .oi-note{font-size:.65rem;color:var(--g400);display:block;}
 
-    /* DECISION SPACE */
+    /* DECISION */
     .decision-box{background:var(--white);border-radius:16px;
                   border:2px solid var(--navy);padding:2rem;margin-top:2rem;}
     .db-title{font-family:'Playfair Display',serif;font-size:1.5rem;
               color:var(--navy);margin-bottom:.5rem;text-align:center;}
     .db-sub{font-size:.82rem;color:var(--g400);text-align:center;margin-bottom:2rem;}
-    .options-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem;}
+    .options-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;}
     .opt{border-radius:var(--r);padding:1.5rem;text-align:center;cursor:pointer;
          border:2px solid transparent;transition:all .25s;}
     .opt:hover{transform:translateY(-3px);}
     .opt.opt-A1{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border-color:#FCD34D;}
     .opt.opt-A2{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border-color:var(--green-br);}
     .opt.opt-B {background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border-color:#93C5FD;}
+    .opt.opt-C {background:linear-gradient(135deg,var(--teal-bg),#CCFBF1);border-color:#5EEAD4;}
     .opt.opt-H {background:linear-gradient(135deg,var(--pur-bg),#EDE9FE);border-color:#C4B5FD;}
     .opt-ico{font-size:2.5rem;display:block;margin-bottom:.65rem;}
     .opt-name{font-size:.92rem;font-weight:800;color:var(--navy);margin-bottom:.4rem;}
@@ -220,11 +186,28 @@
     .opt-pro{font-size:.72rem;color:#065F46;padding:.2rem 0;display:flex;gap:.4rem;}
     .opt-con{font-size:.72rem;color:#991B1B;padding:.2rem 0;display:flex;gap:.4rem;}
 
+    /* MATRIX */
+    .dm-row{display:flex;gap:.75rem;margin-bottom:.75rem;align-items:stretch;}
+    .dm-label{width:170px;flex-shrink:0;font-size:.75rem;font-weight:700;color:var(--g800);
+              background:var(--white);border:1px solid var(--g200);border-radius:8px;
+              padding:.6rem .85rem;display:flex;align-items:center;}
+    .dm-bars{flex:1;display:flex;gap:.5rem;align-items:stretch;}
+    .dm-bar{flex:1;border-radius:8px;padding:.6rem .5rem;display:flex;flex-direction:column;
+            justify-content:center;align-items:center;gap:.2rem;min-height:52px;}
+    .dm-bar .score{font-size:1.1rem;font-weight:900;}
+    .dm-bar .lbl{font-size:.55rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.8;text-align:center;}
+    .dm-bar.A1{background:#FEF3C7;}
+    .dm-bar.A2{background:#FEF9EC;}
+    .dm-bar.B{background:var(--blue-bg);}
+    .dm-bar.C{background:var(--teal-bg);}
+    .dm-bar.H{background:var(--green-bg);}
+    .dm-bar.winner{border:2px solid var(--green);background:var(--green-bg);}
+
     /* VERDICT */
     .verdict{background:linear-gradient(135deg,var(--navy) 0%,#0A2545 100%);
              border-radius:16px;padding:2rem;margin-top:1.5rem;text-align:center;}
     .verdict-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);margin-bottom:.5rem;}
-    .verdict-text{font-size:.85rem;color:rgba(255,255,255,.75);max-width:680px;margin:0 auto 1.25rem;line-height:1.65;}
+    .verdict-text{font-size:.85rem;color:rgba(255,255,255,.75);max-width:700px;margin:0 auto 1.25rem;line-height:1.65;}
     .verdict-rec{display:inline-flex;align-items:center;gap:.5rem;
                  background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);
                  padding:.65rem 1.5rem;border-radius:999px;color:var(--gold2);
@@ -237,20 +220,16 @@
     .bq .hl{color:var(--gold);}
     .bs{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:.6rem;}
 
-    /* REVEAL */
     .rev{opacity:0;transform:translateY(18px);transition:all .5s ease;}
     .rev.on{opacity:1;transform:none;}
-
-    /* FOOTER */
     footer{background:var(--navy);color:rgba(255,255,255,.45);text-align:center;padding:1.75rem;font-size:.72rem;}
     footer strong{color:var(--gold2);}
-
-    /* TAG HELPERS */
     .tag{font-size:.62rem;font-weight:700;padding:.12rem .45rem;border-radius:4px;border:1px solid var(--g200);}
     .tag-g{background:var(--green-bg);color:#065F46;border-color:var(--green-br);}
     .tag-r{background:var(--red-bg);color:#991B1B;border-color:#FCA5A5;}
     .tag-a{background:var(--amber-bg);color:#92400E;border-color:#FCD34D;}
     .tag-b{background:var(--blue-bg);color:#1E40AF;border-color:#BFDBFE;}
+    .tag-t{background:var(--teal-bg);color:#0F766E;border-color:#5EEAD4;}
     .tag-p{background:var(--pur-bg);color:#5B21B6;border-color:#C4B5FD;}
   </style>
 </head>
@@ -261,98 +240,126 @@
   <div class="nv">
     <a href="#cotizaciones">Cotizaciones</a>
     <a href="#obras">Obras</a>
+    <a href="#comparativo">Comparativo</a>
     <a href="#presupuesto">Presupuesto</a>
     <a href="#decision">Decisión</a>
   </div>
-  <span class="ntag">Mayo 2026</span>
+  <span class="ntag">3 Proveedores · Mayo 2026</span>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hc">
     <div class="brow">🏫 Eight Academy · Análisis de Inversión · Aula Inmersiva 360°</div>
-    <h1>Decide con datos.<br/><span class="g">Presupuesto global 70 m².</span></h1>
-    <p class="hsub">Análisis completo de ambas cotizaciones + obras civiles y eléctricas + contenido + honorarios. Todo lo que necesitas para tomar la decisión correcta.</p>
+    <h1>3 proveedores.<br/><span class="g">Una decisión.</span></h1>
+    <p class="hsub">Análisis completo de las 3 cotizaciones recibidas + obras civiles y eléctricas + contenido. Presupuesto global y matriz de decisión.</p>
     <div class="hstats">
-      <div class="hs"><span class="hs-n">2</span><span class="hs-l">Proveedores AV</span></div>
-      <div class="hs"><span class="hs-n">4</span><span class="hs-l">Escenarios</span></div>
+      <div class="hs"><span class="hs-n">3</span><span class="hs-l">Proveedores AV</span></div>
+      <div class="hs"><span class="hs-n">5</span><span class="hs-l">Escenarios</span></div>
       <div class="hs"><span class="hs-n">70 m²</span><span class="hs-l">Área real</span></div>
-      <div class="hs"><span class="hs-n">$38K–$58K</span><span class="hs-l">Rango inversión</span></div>
+      <div class="hs"><span class="hs-n">$47K–$83K</span><span class="hs-l">Rango año 1</span></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ ANÁLISIS COTIZACIONES ═══════════════════ -->
+<!-- ═══ SECCIÓN 1: COTIZACIONES ═══ -->
 <section id="cotizaciones" class="sec bg-w">
   <div class="wrap">
     <div class="sh rev">
-      <div class="sh-e">01 · Análisis de Cotizaciones Recibidas</div>
-      <h2 class="sh-t">Lo que te ofrecen — y lo que falta</h2>
-      <p class="sh-s">Dos proveedores, dos enfoques distintos. Ninguno cubre el 100% de lo que necesitas. Aquí está la radiografía de cada uno.</p>
+      <div class="sh-e">01 · Las 3 Cotizaciones</div>
+      <h2 class="sh-t">Lo que ofrecen — y lo que incluye cada una</h2>
+      <p class="sh-s">Tres enfoques distintos. La tercera es la más completa: incluye audio, servidor y contenido base desde el inicio.</p>
     </div>
 
     <div class="alert warn rev">
       <span class="ai">⚠️</span>
-      <div class="at">
-        <strong>Diferencia crítica de tamaño</strong>
-        La cotización de Felipe Jácome (VMP) está diseñada para <strong>40 m² (6×6m)</strong>. Tu sala es de <strong>70 m²</strong>. Los números de VMP no son directamente comparables sin escalar a tu espacio real. La cotización de 3LASER (Daniel Ayala) sí contempla 8 proyectores, adecuados para 70 m².
-      </div>
+      <div class="at"><strong>VMP diseñado para 40 m² — no para 70 m²</strong>La cotización de Felipe Jácome (VMP) es para 6×6m = 40 m². Las cotizaciones de 3LASER y el Proveedor 3 sí son compatibles con 70 m² (8 y 10 proyectores respectivamente). Los precios de VMP para 70 m² son estimados escalados.</div>
     </div>
 
-    <div class="g2 rev">
-      <!-- 3LASER -->
+    <!-- 3 CARDS en fila -->
+    <div class="g3 rev">
+
+      <!-- PROVEEDOR 1: 3LASER -->
       <div class="card gl">
         <div class="ci">⚡</div>
         <div class="ct">3LASER · Daniel Ayala — PROFORMA2048</div>
-        <div class="cb" style="margin-bottom:1rem">Proveedor hardware especializado. Cotiza directamente para un espacio con 8 proyectores (compatible con 70 m²).</div>
-        <table style="font-size:.75rem;margin-bottom:.85rem;">
-          <tr style="background:var(--g50)"><td style="padding:.4rem .6rem;border-bottom:1px solid var(--g200)"><strong>8× Proyector Laser RGB 4100 lm</strong></td><td style="text-align:right;padding:.4rem .6rem;border-bottom:1px solid var(--g200)"><strong>$15,520</strong></td></tr>
-          <tr><td style="padding:.4rem .6rem;border-bottom:1px solid var(--g200)">8× Truss soporte metálico</td><td style="text-align:right;padding:.4rem .6rem;border-bottom:1px solid var(--g200)">$440</td></tr>
-          <tr style="background:var(--g50)"><td style="padding:.4rem .6rem;border-bottom:1px solid var(--g200)">2× Datapath 4 salidas HDMI</td><td style="text-align:right;padding:.4rem .6rem;border-bottom:1px solid var(--g200)">$5,100</td></tr>
-          <tr><td style="padding:.4rem .6rem;border-bottom:1px solid var(--g200)">Instalación y puesta a punto</td><td style="text-align:right;padding:.4rem .6rem;border-bottom:1px solid var(--g200)">$80</td></tr>
-          <tr style="background:#FFFBEB"><td style="padding:.4rem .6rem;font-weight:700">Subtotal + IVA 15%</td><td style="text-align:right;padding:.4rem .6rem;font-weight:700;color:var(--amber)">$24,311</td></tr>
+        <div class="cb" style="margin-bottom:.75rem">Hardware puro. 8 proyectores para 70m². Sin PC, sin software, sin audio, sin contenido.</div>
+        <table style="font-size:.72rem;width:100%;border-collapse:collapse;margin-bottom:.75rem">
+          <tr style="background:var(--g50)"><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">8× Proyector Laser RGB 4100 lm</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$15,520</td></tr>
+          <tr><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">8× Truss soporte metálico</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$440</td></tr>
+          <tr style="background:var(--g50)"><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">2× Datapath 4 salidas HDMI</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$5,100</td></tr>
+          <tr><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">Instalación (subestimada)</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$80</td></tr>
+          <tr style="background:#FFFBEB"><td style="padding:.4rem .5rem;font-weight:700">Total c/IVA 15%</td><td style="text-align:right;padding:.4rem .5rem;font-weight:700;color:var(--amber)">$24,311</td></tr>
         </table>
-        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem;">
-          <span class="tag tag-g">✅ Escala para 70 m²</span>
-          <span class="tag tag-g">✅ 8 proyectores</span>
-          <span class="tag tag-r">❌ Sin PC / workstation</span>
-          <span class="tag tag-r">❌ Sin videomapping software</span>
+        <div style="display:flex;flex-wrap:wrap;gap:.3rem">
+          <span class="tag tag-g">✅ 8 proyect. para 70m²</span>
+          <span class="tag tag-r">❌ Sin PC</span>
+          <span class="tag tag-r">❌ Sin software</span>
+          <span class="tag tag-r">❌ Sin audio</span>
           <span class="tag tag-r">❌ Sin contenido</span>
-          <span class="tag tag-a">⚠️ Instalación solo $80 → subestimada</span>
-        </div>
-        <div class="alert info" style="margin:0;padding:.7rem .9rem">
-          <span class="ai">💡</span>
-          <div class="at" style="font-size:.72rem">Precio muy competitivo en hardware. Pero el costo real es mayor cuando sumas lo que falta: PC, software, instalación real, contenido.</div>
+          <span class="tag tag-a">⚠️ Instalación $80 = irreal</span>
         </div>
       </div>
 
-      <!-- VMP -->
+      <!-- PROVEEDOR 2: VMP -->
       <div class="card bl">
         <div class="ci">🎬</div>
-        <div class="ct">VMP · Felipe Jácome — Cotización #2026-VMP-01</div>
-        <div class="cb" style="margin-bottom:1rem">Solución integral: hardware + software + contenido mensual. Diseñada para 40 m². Requiere ajuste de escala para tu espacio.</div>
-        <table style="font-size:.75rem;margin-bottom:.85rem;">
-          <tr style="background:#EFF6FF"><td colspan="2" style="padding:.4rem .6rem;font-weight:700;color:var(--blue);border-bottom:1px solid var(--g200)">VERSIÓN A — Premium (4 proyectores, vidrio)</td></tr>
-          <tr><td style="padding:.4rem .6rem;border-bottom:1px solid var(--g200)">Equipamiento completo + PC + SW + Install</td><td style="text-align:right;padding:.4rem .6rem;border-bottom:1px solid var(--g200)">$30,500</td></tr>
-          <tr><td style="padding:.4rem .6rem;border-bottom:1px solid var(--g200)">Contenido 12 meses ($2,000/mes)</td><td style="text-align:right;padding:.4rem .6rem;border-bottom:1px solid var(--g200)">$24,000</td></tr>
-          <tr style="background:#DBEAFE"><td style="padding:.4rem .6rem;font-weight:700">Total Año 1 (para 40 m²)</td><td style="text-align:right;padding:.4rem .6rem;font-weight:700;color:var(--blue)">$54,500</td></tr>
-          <tr style="background:var(--g50)"><td colspan="2" style="padding:.4rem .6rem;font-weight:700;color:var(--g600);border-top:2px solid var(--g200)">VERSIÓN B — Económica (4 proyectores, plástico)</td></tr>
-          <tr><td style="padding:.4rem .6rem;border-bottom:1px solid var(--g200)">Equipamiento completo + PC + SW + Install</td><td style="text-align:right;padding:.4rem .6rem;border-bottom:1px solid var(--g200)">$21,700</td></tr>
-          <tr><td style="padding:.4rem .6rem;border-bottom:1px solid var(--g200)">Contenido 12 meses</td><td style="text-align:right;padding:.4rem .6rem;border-bottom:1px solid var(--g200)">$24,000</td></tr>
-          <tr style="background:#FEF9EC"><td style="padding:.4rem .6rem;font-weight:700">Total Año 1 (para 40 m²)</td><td style="text-align:right;padding:.4rem .6rem;font-weight:700;color:var(--amber)">$45,700</td></tr>
+        <div class="ct">VMP · Felipe Jácome — #2026-VMP-01</div>
+        <div class="cb" style="margin-bottom:.75rem">Solución integral con contenido mensual. <strong>Diseñada para 40m²</strong> — requiere re-cotización para 70m².</div>
+        <table style="font-size:.72rem;width:100%;border-collapse:collapse;margin-bottom:.75rem">
+          <tr style="background:#EFF6FF"><td colspan="2" style="padding:.3rem .5rem;font-weight:700;color:var(--blue);border-bottom:1px solid var(--g200)">Versión A — Premium (para 40m²)</td></tr>
+          <tr><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">4× Proyector vidrio + PC + SW + Install</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$30,500</td></tr>
+          <tr style="background:var(--g50)"><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">Contenido 12 meses</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$24,000</td></tr>
+          <tr style="background:#DBEAFE"><td style="padding:.3rem .5rem;font-weight:700">Total Año 1 (40m²)</td><td style="text-align:right;padding:.3rem .5rem;font-weight:700;color:var(--blue)">$54,500</td></tr>
+          <tr style="background:var(--g50)"><td colspan="2" style="padding:.3rem .5rem;font-weight:700;border-top:1px solid var(--g200)">Versión B — Económica (para 40m²)</td></tr>
+          <tr><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">4× Proyector plástico + PC + SW + Install</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$21,700</td></tr>
+          <tr style="background:#FEF9EC"><td style="padding:.3rem .5rem;font-weight:700">Total Año 1 (40m²)</td><td style="text-align:right;padding:.3rem .5rem;font-weight:700;color:var(--amber)">$45,700</td></tr>
         </table>
-        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem;">
-          <span class="tag tag-g">✅ Solución completa (SW + contenido)</span>
-          <span class="tag tag-g">✅ Fee de contenido incluido</span>
-          <span class="tag tag-g">✅ Garantía 3 años proyector AA</span>
-          <span class="tag tag-r">❌ Diseñado para 40 m², no 70 m²</span>
-          <span class="tag tag-a">⚠️ Necesita cotización escalada</span>
-        </div>
-        <div class="alert ok" style="margin:0;padding:.7rem .9rem">
-          <span class="ai">💡</span>
-          <div class="at" style="font-size:.72rem">Es la propuesta más completa, pero los precios no corresponden a tu espacio. Se debe solicitar cotización Versión C ajustada a 70 m² y presupuesto definido.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.3rem">
+          <span class="tag tag-g">✅ SW + contenido</span>
+          <span class="tag tag-g">✅ Garantía 3 años (Ver A)</span>
+          <span class="tag tag-r">❌ Diseñado para 40m²</span>
+          <span class="tag tag-r">❌ Sin audio</span>
+          <span class="tag tag-a">⚠️ Precio 70m² = estimado</span>
         </div>
       </div>
+
+      <!-- PROVEEDOR 3: EPSON -->
+      <div class="card tl">
+        <div class="ci">🏆</div>
+        <div class="ct">Proveedor 3 · Salón Inmersivo — Proyecto 25_1003</div>
+        <div class="cb" style="margin-bottom:.75rem">La cotización más completa: 10 proyectores EPSON, <strong>audio incluido</strong>, servidor, software, cableado HDBaseT y contenido base. Todo en un paquete.</div>
+        <table style="font-size:.72rem;width:100%;border-collapse:collapse;margin-bottom:.75rem">
+          <tr style="background:var(--teal-bg)"><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">10× Proyector EPSON L210sf</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$24,000</td></tr>
+          <tr><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">10× Adaptadores HDBaseT + Cableado CAT6A</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$6,500</td></tr>
+          <tr style="background:var(--g50)"><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">🔊 Audio: 7 parlantes + 2 subwoofer + brazos</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$1,670</td></tr>
+          <tr><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">🖥️ Servidor GPU 12GB + 32GB RAM + UPS 3kVA</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$3,900</td></tr>
+          <tr style="background:var(--g50)"><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">10× Soportes anclaje c/inclinación</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$2,000</td></tr>
+          <tr><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">Licencia software calibración</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$900</td></tr>
+          <tr style="background:var(--g50)"><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">Config + instalación + capacitación</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$1,800</td></tr>
+          <tr><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">🎬 Experiencia educativa 40 min (contenido base)</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$1,200</td></tr>
+          <tr style="background:var(--g50)"><td style="padding:.3rem .5rem;border-bottom:1px solid var(--g200)">Cableado eléctrico y señal</td><td style="text-align:right;padding:.3rem .5rem;border-bottom:1px solid var(--g200)">$500</td></tr>
+          <tr style="background:var(--teal-bg)"><td style="padding:.4rem .5rem;font-weight:700">Subtotal</td><td style="text-align:right;padding:.4rem .5rem;font-weight:700">$41,120</td></tr>
+          <tr style="background:var(--teal-bg)"><td style="padding:.4rem .5rem;font-weight:800">Total c/IVA 15%</td><td style="text-align:right;padding:.4rem .5rem;font-weight:800;color:var(--teal)">$47,288</td></tr>
+        </table>
+        <div style="display:flex;flex-wrap:wrap;gap:.3rem">
+          <span class="tag tag-t">✅ 10 proyect. EPSON</span>
+          <span class="tag tag-t">✅ Audio incluido</span>
+          <span class="tag tag-t">✅ Servidor incluido</span>
+          <span class="tag tag-t">✅ Software incluido</span>
+          <span class="tag tag-t">✅ Contenido base 40 min</span>
+          <span class="tag tag-t">✅ HDBaseT profesional</span>
+          <span class="tag tag-g">✅ 70% anticipo / 30% entrega</span>
+          <span class="tag tag-r">❌ Sin obras civiles</span>
+          <span class="tag tag-a">⚠️ Contenido mensual no incluido</span>
+        </div>
+      </div>
+
+    </div><!-- /g3 -->
+
+    <div class="alert teal rev" style="margin-top:1.5rem">
+      <span class="ai">🏆</span>
+      <div class="at"><strong>El Proveedor 3 (EPSON) es el paquete más completo recibido</strong>Por $47,288 con IVA incluye todo lo que los otros dejan fuera: audio (parlantes + subwoofer), servidor de alto rendimiento con UPS, cableado HDBaseT profesional, software de calibración, instalación real y contenido base de 40 minutos. Las únicas obras adicionales son las civiles (pintura) y el refuerzo eléctrico.</div>
     </div>
   </div>
 </section>
@@ -360,685 +367,529 @@
 <!-- BANNER 1 -->
 <section class="bg-n">
   <div class="banner">
-    <p class="bq">"Ninguna cotización cubre el 100% del proyecto.<br/><span class="hl">Las obras civiles, eléctricas y el contenido son adicionales — y son reales.</span>"</p>
-    <p class="bs">Análisis de scope completo para Eight Academy · Aula Inmersiva 70 m²</p>
+    <p class="bq">"El Proveedor 3 incluye audio, servidor, software y contenido.<br/><span class="hl">Los otros dos te los cobran aparte.</span>"</p>
+    <p class="bs">Análisis de scope completo · Eight Academy · Aula Inmersiva 70 m²</p>
   </div>
 </section>
 
-<!-- ═══════════════════ OBRAS ═══════════════════ -->
+<!-- ═══ SECCIÓN 2: OBRAS ═══ -->
 <section id="obras" class="sec bg-g">
   <div class="wrap">
     <div class="sh rev">
-      <div class="sh-e">02 · Scope Completo del Proyecto</div>
-      <h2 class="sh-t">Todo lo que hay que hacer para la sala de 70 m²</h2>
-      <p class="sh-s">Las cotizaciones cubren solo el equipamiento AV. Aquí está el presupuesto real con obras civiles, eléctricas, contenido y honorarios técnicos.</p>
+      <div class="sh-e">02 · Obras Adicionales Necesarias</div>
+      <h2 class="sh-t">Lo que ninguna cotización incluye</h2>
+      <p class="sh-s">Las 3 cotizaciones excluyen obras civiles. El Proveedor 3 incluye cableado básico pero no el tablero eléctrico dedicado ni tierra física.</p>
     </div>
 
-    <!-- OBRAS CIVILES -->
-    <div class="obra-card rev">
-      <div class="obra-header">
-        <div class="obra-ico" style="background:#FEF3C7">🏗️</div>
-        <div>
-          <div class="obra-title">Obras Civiles — Acondicionamiento de Sala</div>
-          <div class="obra-sub">Preparación de superficies para proyección 360°. Todas las paredes son pantalla.</div>
+    <div class="g2 rev">
+      <div class="obra-card">
+        <div class="obra-header">
+          <div class="obra-ico" style="background:#FEF3C7">🏗️</div>
+          <div><div class="obra-title">Obras Civiles</div><div class="obra-sub">Ningún proveedor las incluye</div></div>
+        </div>
+        <div class="obra-items">
+          <div class="oi"><div class="oi-name">Pintura paredes blanco mate proyectable (4 paredes)<span class="oi-note">Mínimo 2 manos. Superficie lisa. Crítico para calidad de imagen.</span></div><div class="oi-range">$600–$900</div></div>
+          <div class="oi"><div class="oi-name">Enlucido/resanado de imperfecciones<span class="oi-note">Los proyectores evidencian cualquier irregularidad.</span></div><div class="oi-range">$400–$700</div></div>
+          <div class="oi"><div class="oi-name">Techo negro mate<span class="oi-note">Evita reflexiones de luz. Mejora la inmersión.</span></div><div class="oi-range">$500–$900</div></div>
+          <div class="oi"><div class="oi-name">Piso (tratamiento o alfombra acústica)<span class="oi-note">Opcional pero mejora acústica del sistema de audio.</span></div><div class="oi-range">$300–$500</div></div>
+          <div class="oi" style="background:var(--amber-bg);padding:.5rem;border-radius:6px;border:none;margin-top:.4rem">
+            <div class="oi-name" style="font-weight:700">TOTAL OBRAS CIVILES</div><div class="oi-range" style="color:var(--amber);font-weight:800">$1,800–$3,000</div>
+          </div>
         </div>
       </div>
-      <div class="obra-items">
-        <div class="oi">
-          <div class="oi-name">Pintura paredes blanco mate especial (4 paredes, 70 m²)
-            <span class="oi-note">Pintura proyectable de alto contraste. Mínimo 2 manos. Superficie lisa obligatoria.</span>
-          </div>
-          <div class="oi-range">$600 – $900</div>
+
+      <div class="obra-card">
+        <div class="obra-header">
+          <div class="obra-ico" style="background:#DBEAFE">⚡</div>
+          <div><div class="obra-title">Obras Eléctricas</div><div class="obra-sub">El P3 incluye cableado básico $500 — falta el tablero y tierra</div></div>
         </div>
-        <div class="oi">
-          <div class="oi-name">Enlucido/resanado de paredes (si hay irregularidades)
-            <span class="oi-note">Proyectores evidencian cualquier imperfección de la superficie. Crítico para calidad de imagen.</span>
+        <div class="obra-items">
+          <div class="oi"><div class="oi-name">Tablero/breaker dedicado (20A)<span class="oi-note">Circuito independiente para todo el sistema AV.</span></div><div class="oi-range">$350–$550</div></div>
+          <div class="oi"><div class="oi-name">Puesta a tierra física certificada<span class="oi-note">Obligatoria para proyectores EPSON/laser.</span></div><div class="oi-range">$250–$450</div></div>
+          <div class="oi"><div class="oi-name">Tomacorrientes adicionales (10+ puntos)<span class="oi-note">10 proyectores + servidor + amplificador + iluminación.</span></div><div class="oi-range">$400–$700</div></div>
+          <div class="oi"><div class="oi-name">Iluminación LED ambiental con dimmer<span class="oi-note">Para transición entre modo normal e inmersivo.</span></div><div class="oi-range">$400–$650</div></div>
+          <div class="oi" style="background:#DBEAFE;padding:.5rem;border-radius:6px;border:none;margin-top:.4rem">
+            <div class="oi-name" style="font-weight:700">TOTAL OBRAS ELÉCTRICAS</div><div class="oi-range" style="color:var(--blue);font-weight:800">$1,400–$2,350</div>
           </div>
-          <div class="oi-range">$400 – $700</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Cielo raso / techo negro mate
-            <span class="oi-note">Techo oscuro evita reflexión de luz y mejora inmersión. Puede ser pintura o plafón.</span>
-          </div>
-          <div class="oi-range">$500 – $900</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Piso (tratamiento antirreflejos o alfombra acústica)
-            <span class="oi-note">Si se proyecta en piso (opcional), requiere pintura especial. Alfombra mejora acústica.</span>
-          </div>
-          <div class="oi-range">$300 – $600</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Desmontaje de elementos y limpieza
-            <span class="oi-note">Retiro de cuadros, clavo, irregularidades, sillones, mobiliario anterior.</span>
-          </div>
-          <div class="oi-range">$150 – $300</div>
-        </div>
-        <div class="oi" style="background:var(--amber-bg);padding:.5rem;border-radius:6px;border:none;margin-top:.4rem">
-          <div class="oi-name" style="font-weight:700">TOTAL ESTIMADO OBRAS CIVILES</div>
-          <div class="oi-range" style="color:var(--amber);font-weight:800">$1,950 – $3,400</div>
         </div>
       </div>
     </div>
 
-    <!-- OBRAS ELÉCTRICAS -->
-    <div class="obra-card rev">
-      <div class="obra-header">
-        <div class="obra-ico" style="background:#DBEAFE">⚡</div>
-        <div>
-          <div class="obra-title">Obras Eléctricas — Instalación Dedicada</div>
-          <div class="obra-sub">8 proyectores + PC + amplificador + controles. Requieren circuito dedicado con tierra física.</div>
-        </div>
-      </div>
-      <div class="obra-items">
-        <div class="oi">
-          <div class="oi-name">Tablero eléctrico dedicado (breaker independiente)
-            <span class="oi-note">Circuito dedicado de 20A para todo el sistema AV. Protege equipos de fluctuaciones.</span>
-          </div>
-          <div class="oi-range">$350 – $550</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Puesta a tierra física certificada
-            <span class="oi-note">Obligatoria para proyectores láser. Sin tierra, riesgo de daño a equipo.</span>
-          </div>
-          <div class="oi-range">$250 – $450</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Cableado eléctrico + tomacorrientes (8–10 puntos)
-            <span class="oi-note">Un punto por proyector + PC + amplificador + iluminación. Con canaleta o embutidos.</span>
-          </div>
-          <div class="oi-range">$500 – $900</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Reguladores de voltaje / UPS
-            <span class="oi-note">Protección contra cortes de luz. Recomendado para proteger proyectores y PC.</span>
-          </div>
-          <div class="oi-range">$300 – $500</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Iluminación LED ambiental con dimmer
-            <span class="oi-note">Iluminación controlable para transición entre modo normal y modo inmersivo.</span>
-          </div>
-          <div class="oi-range">$400 – $650</div>
-        </div>
-        <div class="oi" style="background:#DBEAFE;padding:.5rem;border-radius:6px;border:none;margin-top:.4rem">
-          <div class="oi-name" style="font-weight:700">TOTAL ESTIMADO OBRAS ELÉCTRICAS</div>
-          <div class="oi-range" style="color:var(--blue);font-weight:800">$1,800 – $3,050</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AUDIO -->
-    <div class="obra-card rev">
-      <div class="obra-header">
-        <div class="obra-ico" style="background:var(--pur-bg)">🔊</div>
-        <div>
-          <div class="obra-title">Sistema de Audio Inmersivo</div>
-          <div class="obra-sub">Las cotizaciones NO incluyen audio. Es fundamental para la experiencia inmersiva 360°.</div>
-        </div>
-      </div>
-      <div class="obra-items">
-        <div class="oi">
-          <div class="oi-name">Amplificador estéreo / multicanal
-            <span class="oi-note">Para 70 m² se recomienda mínimo 4 parlantes de techo o pared para sonido envolvente.</span>
-          </div>
-          <div class="oi-range">$400 – $800</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">4× Parlantes de techo o pared (sistema de instalación)
-            <span class="oi-note">Sonido envolvente básico. El contenido VMP no incluye audio — cotizar narración aparte.</span>
-          </div>
-          <div class="oi-range">$600 – $1,200</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Cableado de audio + instalación</div>
-          <div class="oi-range">$200 – $400</div>
-        </div>
-        <div class="oi" style="background:var(--pur-bg);padding:.5rem;border-radius:6px;border:none;margin-top:.4rem">
-          <div class="oi-name" style="font-weight:700">TOTAL ESTIMADO AUDIO</div>
-          <div class="oi-range" style="color:var(--purple);font-weight:800">$1,200 – $2,400</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PC + SOFTWARE (necesario si se va con 3LASER) -->
-    <div class="obra-card rev">
-      <div class="obra-header">
-        <div class="obra-ico" style="background:var(--green-bg)">💻</div>
-        <div>
-          <div class="obra-title">PC + Software de Videomapping</div>
-          <div class="obra-sub">Necesario si se elige 3LASER (no incluye PC ni software). VMP sí los incluye.</div>
-        </div>
-      </div>
-      <div class="obra-items">
-        <div class="oi">
-          <div class="oi-name">PC Workstation (GPU dedicada para 8 salidas de video)
-            <span class="oi-note">Requiere GPU con soporte para múltiples salidas. Mínimo RTX 3060 o equivalente.</span>
-          </div>
-          <div class="oi-range">$2,000 – $3,200</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Software de videomapping (licencia)
-            <span class="oi-note">Resolume, Millumin o equivalente. Precio por licencia permanente.</span>
-          </div>
-          <div class="oi-range">$900 – $1,500</div>
-        </div>
-        <div class="oi" style="background:var(--green-bg);padding:.5rem;border-radius:6px;border:none;margin-top:.4rem">
-          <div class="oi-name" style="font-weight:700">TOTAL (solo si se elige 3LASER)</div>
-          <div class="oi-range" style="color:var(--green);font-weight:800">$2,900 – $4,700</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HONORARIOS TÉCNICO -->
-    <div class="obra-card rev">
-      <div class="obra-header">
-        <div class="obra-ico" style="background:var(--red-bg)">👨‍🔧</div>
-        <div>
-          <div class="obra-title">Honorarios Técnico Especialista AV</div>
-          <div class="obra-sub">Instalación real, calibración, mapeo, capacitación y soporte post-instalación.</div>
-        </div>
-      </div>
-      <div class="obra-items">
-        <div class="oi">
-          <div class="oi-name">Instalación física (montaje de truss, proyectores, cableado AV)
-            <span class="oi-note">El $80 de 3LASER es irreal para 8 proyectores. Una instalación real para 70 m² toma 3–5 días.</span>
-          </div>
-          <div class="oi-range">$800 – $1,500</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Calibración y videomapping (alineación de 8 proyectores)
-            <span class="oi-note">El mapeo de 8 proyectores sobre 4 paredes requiere especialista. 1–2 días de trabajo.</span>
-          </div>
-          <div class="oi-range">$400 – $800</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Capacitación del equipo Eight Academy
-            <span class="oi-note">Cómo operar el sistema, cambiar contenido, solucionar problemas básicos.</span>
-          </div>
-          <div class="oi-range">$200 – $400</div>
-        </div>
-        <div class="oi">
-          <div class="oi-name">Soporte técnico remoto (3 meses post-instalación)
-            <span class="oi-note">Resolución de problemas durante el período de ajuste.</span>
-          </div>
-          <div class="oi-range">$300 – $600</div>
-        </div>
-        <div class="oi" style="background:var(--red-bg);padding:.5rem;border-radius:6px;border:none;margin-top:.4rem">
-          <div class="oi-name" style="font-weight:700">TOTAL HONORARIOS TÉCNICOS</div>
-          <div class="oi-range" style="color:var(--red);font-weight:800">$1,700 – $3,300</div>
-        </div>
-      </div>
+    <div class="alert info rev" style="margin-top:1.5rem">
+      <span class="ai">💡</span>
+      <div class="at"><strong>Presupuesto obras total recomendado: $3,500–$5,500</strong>
+      Civiles (~$2,500) + Eléctricas (~$2,000). El Proveedor 3 ya incluye $500 de cableado básico, así que el delta eléctrico adicional es ~$1,500–$2,000. Para la toma de decisión, usa <strong>$4,500</strong> como estimado conservador de obras.</div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ CUADRO COMPARATIVO ═══════════════════ -->
-<section class="sec bg-w">
+<!-- ═══ SECCIÓN 3: COMPARATIVO ═══ -->
+<section id="comparativo" class="sec bg-w">
   <div class="wrap">
     <div class="sh rev">
       <div class="sh-e">03 · Cuadro Comparativo</div>
-      <h2 class="sh-t">3LASER vs VMP — variable por variable</h2>
-      <p class="sh-s">Comparación directa ajustada a 70 m² y scope completo. Verde = ventaja. Rojo = desventaja.</p>
+      <h2 class="sh-t">Los 3 proveedores — variable por variable</h2>
+      <p class="sh-s">Todo ajustado a 70 m² y scope completo. Verde = ventaja. Rojo = desventaja. Amarillo = parcial.</p>
     </div>
 
     <div class="ctbl rev">
       <table>
         <thead>
           <tr>
-            <th style="width:34%">Variable</th>
-            <th class="c-prov" style="width:22%">3LASER<br/><span style="font-weight:400;text-transform:none;font-size:.65rem">Daniel Ayala</span></th>
-            <th class="c-prov" style="width:22%">VMP Versión A<br/><span style="font-weight:400;text-transform:none;font-size:.65rem">Felipe Jácome (premium)</span></th>
-            <th class="c-prov" style="width:22%">VMP Versión B<br/><span style="font-weight:400;text-transform:none;font-size:.65rem">Felipe Jácome (económica)</span></th>
+            <th style="width:28%">Variable</th>
+            <th class="c-prov" style="width:18%">3LASER<br/><span style="font-weight:400;text-transform:none;font-size:.62rem">Daniel Ayala</span></th>
+            <th class="c-prov" style="width:18%">VMP Ver.A<br/><span style="font-weight:400;text-transform:none;font-size:.62rem">F. Jácome (premium)</span></th>
+            <th class="c-prov" style="width:18%">VMP Ver.B<br/><span style="font-weight:400;text-transform:none;font-size:.62rem">F. Jácome (económica)</span></th>
+            <th class="c-prov" style="width:18%;background:#0F766E">PROVEEDOR 3<br/><span style="font-weight:400;text-transform:none;font-size:.62rem">EPSON Inmersivo ★</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Proyectores</strong><br/><span style="font-size:.7rem;color:var(--g400)">Cantidad / Calidad</span></td>
-            <td class="tc win">8 unidades<br/>Laser RGB 4100 lm<br/><span class="tag tag-g">✅ Adecuado 70 m²</span></td>
-            <td class="tc tie">4 unidades<br/>Lente vidrio AA<br/><span class="tag tag-a">⚠️ Para 40 m²</span></td>
-            <td class="tc tie">4 unidades<br/>Lente plástico<br/><span class="tag tag-a">⚠️ Para 40 m²</span></td>
+            <td><strong>Proyectores</strong></td>
+            <td class="tc win">8 und.<br/>Laser RGB 4100lm</td>
+            <td class="tc tie">4 und. (40m²)<br/>Vidrio AA</td>
+            <td class="tc tie">4 und. (40m²)<br/>Plástico</td>
+            <td class="tc win" style="background:#F0FDFA !important;color:#065F46 !important;font-weight:700">10 und.<br/>EPSON L210sf Laser</td>
           </tr>
           <tr>
-            <td><strong>Luminosidad</strong></td>
-            <td class="tc">4,100 lm por unidad</td>
-            <td class="tc win">Mayor luminosidad<br/>No especificada</td>
-            <td class="tc lose">Menor luminosidad<br/>Lente plástico</td>
+            <td><strong>Distribución de señal</strong></td>
+            <td class="tc">Datapath HDMI<br/>(2 unidades)</td>
+            <td class="tc">NDI/ArtNet</td>
+            <td class="tc">NDI/ArtNet</td>
+            <td class="tc win" style="background:#F0FDFA !important;color:#065F46 !important;font-weight:700">HDBaseT Cat6A<br/>✅ Más profesional</td>
           </tr>
           <tr>
-            <td><strong>PC incluida</strong></td>
+            <td><strong>PC / Servidor</strong></td>
             <td class="tc lose">❌ No incluye</td>
             <td class="tc win">✅ PC AA $3,000</td>
             <td class="tc win">✅ PC AA $3,000</td>
+            <td class="tc win" style="background:#F0FDFA !important;color:#065F46 !important;font-weight:700">✅ Servidor GPU 12GB<br/>32GB RAM + UPS 3kVA</td>
           </tr>
           <tr>
             <td><strong>Software videomapping</strong></td>
             <td class="tc lose">❌ No incluye</td>
             <td class="tc win">✅ Incluido $900</td>
             <td class="tc win">✅ Incluido $900</td>
+            <td class="tc win" style="background:#F0FDFA !important;color:#065F46 !important;font-weight:700">✅ Licencia calibración $900</td>
           </tr>
           <tr>
-            <td><strong>Contenido inmersivo</strong></td>
+            <td><strong>Audio</strong></td>
             <td class="tc lose">❌ No incluye</td>
-            <td class="tc win">✅ $2,000/mes<br/>3 videos/mes</td>
-            <td class="tc win">✅ $2,000/mes<br/>3 videos/mes</td>
+            <td class="tc lose">❌ No incluye</td>
+            <td class="tc lose">❌ No incluye</td>
+            <td class="tc win" style="background:#F0FDFA !important;color:#065F46 !important;font-weight:700">✅ 7 parlantes + 2 sub<br/>+ brazos = $1,670</td>
           </tr>
           <tr>
-            <td><strong>Instalación incluida</strong></td>
-            <td class="tc lose">⚠️ $80 (irreal)</td>
+            <td><strong>Instalación real</strong></td>
+            <td class="tc lose">⚠️ $80 irreal</td>
             <td class="tc win">✅ $1,800</td>
             <td class="tc win">✅ $1,500</td>
+            <td class="tc win" style="background:#F0FDFA !important;color:#065F46 !important;font-weight:700">✅ Config + Install + Cap. $1,800</td>
           </tr>
           <tr>
-            <td><strong>Garantía del equipo</strong></td>
+            <td><strong>Contenido incluido</strong></td>
+            <td class="tc lose">❌ No incluye</td>
+            <td class="tc win">✅ $2,000/mes ongoing</td>
+            <td class="tc win">✅ $2,000/mes ongoing</td>
+            <td class="tc tie">⚠️ 40 min base ($1,200)<br/>Sin suscripción mensual</td>
+          </tr>
+          <tr>
+            <td><strong>Precio hardware total (c/IVA)</strong></td>
+            <td class="tc win">$24,311</td>
+            <td class="tc lose">~$50,000* (70m²)</td>
+            <td class="tc">~$37,000* (70m²)</td>
+            <td class="tc" style="background:#F0FDFA !important;font-weight:700;color:var(--teal)">$47,288 ✅ completo</td>
+          </tr>
+          <tr>
+            <td><strong>Año 1 completo (c/obras, c/contenido)</strong></td>
+            <td class="tc">~$60,000</td>
+            <td class="tc lose">~$82,000*</td>
+            <td class="tc">~$68,000*</td>
+            <td class="tc win" style="background:#F0FDFA !important;color:#065F46 !important;font-weight:700">~$75,800<br/>(con cont. mensual VMP)</td>
+          </tr>
+          <tr>
+            <td><strong>Año 1 SOLO hardware + obras</strong></td>
+            <td class="tc">~$36,000</td>
+            <td class="tc lose">~$58,000*</td>
+            <td class="tc">~$45,000*</td>
+            <td class="tc win" style="background:#F0FDFA !important;color:#065F46 !important;font-weight:700">~$51,788 ✅ todo incluido</td>
+          </tr>
+          <tr>
+            <td><strong>Garantía</strong></td>
             <td class="tc">No especificada</td>
-            <td class="tc win">3 años</td>
-            <td class="tc lose">No especificada<br/>Riesgo mantenimiento</td>
-          </tr>
-          <tr>
-            <td><strong>Durabilidad lente</strong></td>
-            <td class="tc">No especificado</td>
-            <td class="tc win">Vidrio · 10 años</td>
-            <td class="tc lose">Plástico · mayor riesgo</td>
-          </tr>
-          <tr>
-            <td><strong>Procesador de señal</strong></td>
-            <td class="tc win">Datapath 4K<br/>2 unidades (8 salidas)</td>
-            <td class="tc">NDI/ArtNet</td>
-            <td class="tc">NDI/ArtNet</td>
-          </tr>
-          <tr>
-            <td><strong>Precio hardware (70 m² real)</strong></td>
-            <td class="tc win">$24,311 (c/IVA)</td>
-            <td class="tc lose">~$50,000–52,000*<br/><span style="font-size:.65rem">*escalado a 70 m²</span></td>
-            <td class="tc lose">~$36,000–38,000*<br/><span style="font-size:.65rem">*escalado a 70 m²</span></td>
-          </tr>
-          <tr>
-            <td><strong>Precio total año 1 (70 m², scope completo)</strong></td>
-            <td class="tc win" style="font-size:1rem;font-weight:800;color:var(--green)">~$38,000–42,000</td>
-            <td class="tc" style="font-size:1rem;font-weight:800;color:var(--amber)">~$78,000–82,000*</td>
-            <td class="tc" style="font-size:1rem;font-weight:800;color:var(--amber)">~$64,000–68,000*</td>
+            <td class="tc win">3 años proyector</td>
+            <td class="tc lose">No especificada</td>
+            <td class="tc" style="background:#F0FDFA !important">EPSON marca reconocida<br/>Garantía estándar</td>
           </tr>
           <tr>
             <td><strong>Escalabilidad (2da aula)</strong></td>
             <td class="tc">Cotizar de nuevo</td>
             <td class="tc win">−15% desde 2da aula</td>
             <td class="tc win">−15% desde 2da aula</td>
+            <td class="tc">Consultar</td>
           </tr>
           <tr>
             <td><strong>PUNTUACIÓN TOTAL</strong></td>
-            <td class="tc"><span class="score-big">7/12</span><br/><span style="font-size:.68rem">Hardware fuerte, sin servicios</span></td>
-            <td class="tc win"><span class="score-big" style="color:var(--green)">10/12</span><br/><span style="font-size:.68rem">Solución completa, caro en 70 m²</span></td>
-            <td class="tc"><span class="score-big" style="color:var(--amber)">7/12</span><br/><span style="font-size:.68rem">Similar a 3LASER en puntuación</span></td>
+            <td class="tc"><span class="score-big">7/15</span></td>
+            <td class="tc"><span class="score-big">10/15</span></td>
+            <td class="tc"><span class="score-big">7/15</span></td>
+            <td class="tc win" style="background:#F0FDFA !important"><span class="score-big" style="color:var(--teal)">13/15</span><br/><span style="font-size:.65rem;color:#065F46">★ Más completo</span></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:.68rem;color:var(--g400);margin-top:.5rem;text-align:right">* Estimado. VMP debe cotizar Versión C ajustada a 70 m² para confirmar.</p>
-  </div>
-</section>
-
-<!-- ═══════════════════ PRESUPUESTO GLOBAL ═══════════════════ -->
-<section id="presupuesto" class="sec bg-g">
-  <div class="wrap">
-    <div class="sh rev">
-      <div class="sh-e">04 · Presupuesto Global por Escenario</div>
-      <h2 class="sh-t">El costo real total del proyecto</h2>
-      <p class="sh-s">4 escenarios comparables. Todos incluyen obras civiles, eléctricas, audio, honorarios y contenido primer año. Lo que vas a necesitar realmente.</p>
-    </div>
-
-    <div class="g2 rev">
-
-      <!-- ESCENARIO 1: 3LASER completo -->
-      <div class="bcard">
-        <div class="bcard-head" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5)">
-          <h3 style="color:#065F46">🅐 3LASER Completo (Recomendado)</h3>
-          <p style="color:#059669">Hardware 3LASER + PC + SW + Obras + Contenido propio</p>
-          <span class="rec-badge">MEJOR PRECIO AÑO 1</span>
-        </div>
-
-        <div class="section-divider">EQUIPAMIENTO AV</div>
-        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">8 Proyectores Laser 4100 lm + Datapath + Truss<span>3LASER · PROFORMA2048 · incluye IVA</span></div><div class="bline-amount">$24,311</div></div>
-        <div class="bline"><span class="bline-ico">💻</span><div class="bline-label">PC Workstation (GPU RTX)<span>Necesario — no incluido en 3LASER</span></div><div class="bline-amount">$2,500</div></div>
-        <div class="bline"><span class="bline-ico">🎞️</span><div class="bline-label">Software Videomapping (licencia)<span>Resolume o equivalente</span></div><div class="bline-amount">$1,200</div></div>
-
-        <div class="section-divider">OBRAS</div>
-        <div class="bline"><span class="bline-ico">🏗️</span><div class="bline-label">Obras civiles (pintura, enlucido, techo)<span>Estimado promedio</span></div><div class="bline-amount">$2,500</div></div>
-        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Obras eléctricas (breaker, tierra, tomacorrientes)<span>Estimado promedio</span></div><div class="bline-amount">$2,300</div></div>
-        <div class="bline"><span class="bline-ico">🔊</span><div class="bline-label">Sistema de audio inmersivo (4 parlantes + amplificador)<span>No incluido en ninguna cotización</span></div><div class="bline-amount">$1,800</div></div>
-
-        <div class="section-divider">SERVICIOS</div>
-        <div class="bline"><span class="bline-ico">👨‍🔧</span><div class="bline-label">Honorarios técnico (instalación real + calibración + capacitación)<span>Reemplaza el $80 irreal de 3LASER</span></div><div class="bline-amount">$2,000</div></div>
-
-        <div class="section-divider">CONTENIDO AÑO 1</div>
-        <div class="bline"><span class="bline-ico">🎬</span><div class="bline-label">Producción de contenido inmersivo (12 meses)<span>Si se contrata productora a $2,000/mes (igual que VMP)</span></div><div class="bline-amount">$24,000</div></div>
-
-        <div class="total-row">
-          <div class="total-label">TOTAL AÑO 1</div>
-          <div class="total-amount">$60,611</div>
-        </div>
-        <div class="total-row" style="border-top:1px dashed var(--g200);padding-top:.5rem;margin-top:0">
-          <div class="total-label" style="font-size:.7rem;color:var(--g400)">Sin contenido (solo instalación)</div>
-          <div class="total-amount" style="font-size:1rem">$36,611</div>
-        </div>
-      </div>
-
-      <!-- ESCENARIO 2: 3LASER + VMP CONTENIDO (HÍBRIDO) -->
-      <div class="bcard">
-        <div class="bcard-head" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
-          <h3 style="color:#1E40AF">🅑 Opción Híbrida (Recomendada ★)</h3>
-          <p style="color:var(--blue)">Hardware 3LASER + Contenido VMP + Obras</p>
-          <span class="rec-badge" style="background:var(--blue)">MEJOR RELACIÓN CALIDAD/PRECIO</span>
-        </div>
-
-        <div class="section-divider">EQUIPAMIENTO AV</div>
-        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">8 Proyectores Laser 4100 lm + Datapath + Truss<span>3LASER · incluye IVA</span></div><div class="bline-amount">$24,311</div></div>
-        <div class="bline"><span class="bline-ico">💻</span><div class="bline-label">PC Workstation + Software<span>Incluido en cotización VMP</span></div><div class="bline-amount">$3,900</div></div>
-
-        <div class="section-divider">OBRAS</div>
-        <div class="bline"><span class="bline-ico">🏗️</span><div class="bline-label">Obras civiles<span>Estimado promedio</span></div><div class="bline-amount">$2,500</div></div>
-        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Obras eléctricas<span>Estimado promedio</span></div><div class="bline-amount">$2,300</div></div>
-        <div class="bline"><span class="bline-ico">🔊</span><div class="bline-label">Sistema de audio inmersivo<span>Estimado promedio</span></div><div class="bline-amount">$1,800</div></div>
-
-        <div class="section-divider">SERVICIOS</div>
-        <div class="bline"><span class="bline-ico">👨‍🔧</span><div class="bline-label">Honorarios técnico AV<span>Instalación + calibración + capacitación</span></div><div class="bline-amount">$2,000</div></div>
-        <div class="bline"><span class="bline-ico">🎨</span><div class="bline-label">Asesoría técnica y diseño VMP<span>Incluida en cotización VMP</span></div><div class="bline-amount">$2,000</div></div>
-
-        <div class="section-divider">CONTENIDO AÑO 1 — VMP</div>
-        <div class="bline"><span class="bline-ico">🎬</span><div class="bline-label">Fee VMP: 3 videos inmersivos/mes × 12 meses<span>$2,000/mes · optimizado para 4 → 8 proyectores</span></div><div class="bline-amount">$24,000</div></div>
-
-        <div class="total-row">
-          <div class="total-label">TOTAL AÑO 1</div>
-          <div class="total-amount">$62,811</div>
-        </div>
-        <div class="total-row" style="border-top:1px dashed var(--g200);padding-top:.5rem;margin-top:0">
-          <div class="total-label" style="font-size:.7rem;color:var(--g400)">Sin contenido (solo instalación)</div>
-          <div class="total-amount" style="font-size:1rem">$38,811</div>
-        </div>
-      </div>
-
-      <!-- ESCENARIO 3: VMP A escalado -->
-      <div class="bcard">
-        <div class="bcard-head" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7)">
-          <h3 style="color:#92400E">🅒 VMP Versión A — Escalado 70 m²</h3>
-          <p style="color:var(--amber)">Solución completa VMP premium para 70 m²</p>
-          <span class="warn-badge">REQUIERE NUEVA COTIZACIÓN</span>
-        </div>
-
-        <div class="section-divider">EQUIPAMIENTO AV (ESTIMADO ESCALADO)</div>
-        <div class="bline"><span class="bline-ico">🎞️</span><div class="bline-label">8 Proyectores AA lente vidrio + PC + SW + Install<span>Estimado al escalar de 4→8 unidades desde cotización VMP</span></div><div class="bline-amount">~$50,000</div></div>
-        <div class="bline"><span class="bline-ico">🎨</span><div class="bline-label">Asesoría técnica y diseño<span>Incluida en VMP</span></div><div class="bline-amount">$2,000</div></div>
-
-        <div class="section-divider">OBRAS</div>
-        <div class="bline"><span class="bline-ico">🏗️</span><div class="bline-label">Obras civiles<span>Estimado</span></div><div class="bline-amount">$2,500</div></div>
-        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Obras eléctricas<span>Estimado</span></div><div class="bline-amount">$2,300</div></div>
-        <div class="bline"><span class="bline-ico">🔊</span><div class="bline-label">Sistema de audio<span>No incluido en VMP</span></div><div class="bline-amount">$1,800</div></div>
-
-        <div class="section-divider">CONTENIDO</div>
-        <div class="bline"><span class="bline-ico">🎬</span><div class="bline-label">Contenido VMP 12 meses<span>$2,000/mes</span></div><div class="bline-amount">$24,000</div></div>
-
-        <div class="total-row">
-          <div class="total-label">TOTAL ESTIMADO AÑO 1</div>
-          <div class="total-amount">~$82,600</div>
-        </div>
-        <div class="total-row" style="border-top:1px dashed var(--g200);padding-top:.5rem;margin-top:0">
-          <div class="total-label" style="font-size:.7rem;color:var(--g400)">Sin contenido</div>
-          <div class="total-amount" style="font-size:1rem">~$58,600</div>
-        </div>
-      </div>
-
-      <!-- ESCENARIO 4: VMP B escalado -->
-      <div class="bcard">
-        <div class="bcard-head" style="background:linear-gradient(135deg,var(--pur-bg),#EDE9FE)">
-          <h3 style="color:#5B21B6">🅓 VMP Versión B — Escalado 70 m²</h3>
-          <p style="color:var(--purple)">Solución VMP económica para 70 m²</p>
-          <span class="warn-badge" style="background:var(--purple)">REQUIERE NUEVA COTIZACIÓN</span>
-        </div>
-
-        <div class="section-divider">EQUIPAMIENTO AV (ESTIMADO ESCALADO)</div>
-        <div class="bline"><span class="bline-ico">🎞️</span><div class="bline-label">8 Proyectores A lente plástico + PC + SW + Install<span>Estimado escalado de cotización VMP</span></div><div class="bline-amount">~$37,000</div></div>
-        <div class="bline"><span class="bline-ico">🎨</span><div class="bline-label">Asesoría técnica y diseño<span>Incluida en VMP</span></div><div class="bline-amount">$1,500</div></div>
-
-        <div class="section-divider">OBRAS</div>
-        <div class="bline"><span class="bline-ico">🏗️</span><div class="bline-label">Obras civiles<span>Estimado</span></div><div class="bline-amount">$2,500</div></div>
-        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Obras eléctricas<span>Estimado</span></div><div class="bline-amount">$2,300</div></div>
-        <div class="bline"><span class="bline-ico">🔊</span><div class="bline-label">Sistema de audio<span>No incluido en VMP</span></div><div class="bline-amount">$1,800</div></div>
-
-        <div class="section-divider">CONTENIDO</div>
-        <div class="bline"><span class="bline-ico">🎬</span><div class="bline-label">Contenido VMP 12 meses<span>$2,000/mes</span></div><div class="bline-amount">$24,000</div></div>
-
-        <div class="total-row">
-          <div class="total-label">TOTAL ESTIMADO AÑO 1</div>
-          <div class="total-amount">~$69,100</div>
-        </div>
-        <div class="total-row" style="border-top:1px dashed var(--g200);padding-top:.5rem;margin-top:0">
-          <div class="total-label" style="font-size:.7rem;color:var(--g400)">Sin contenido</div>
-          <div class="total-amount" style="font-size:1rem">~$45,100</div>
-        </div>
-      </div>
-
-    </div><!-- /g2 -->
-
-    <!-- RESUMEN RÁPIDO -->
-    <div class="ctbl rev" style="margin-top:2rem">
-      <table>
-        <thead>
-          <tr>
-            <th>Escenario</th>
-            <th class="tc">Solo hardware + obras</th>
-            <th class="tc">Año 1 completo (con contenido)</th>
-            <th class="tc">Desde Año 2</th>
-            <th class="tc">Recomendación</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>🅐 3LASER Completo</strong></td><td class="tc win">$36,611</td><td class="tc">$60,611</td><td class="tc">$24,000/año (solo contenido)</td><td class="tc"><span class="tag tag-g">Presupuesto ajustado</span></td></tr>
-          <tr><td><strong>🅑 Híbrido 3LASER + VMP</strong></td><td class="tc win">$38,811</td><td class="tc win">$62,811</td><td class="tc">$24,000/año (solo contenido)</td><td class="tc"><span class="tag tag-b">★ MEJOR OPCIÓN</span></td></tr>
-          <tr><td><strong>🅒 VMP A escalado 70m²</strong></td><td class="tc lose">~$58,600</td><td class="tc lose">~$82,600</td><td class="tc">$24,000/año (solo contenido)</td><td class="tc"><span class="tag tag-a">Si se prioriza calidad</span></td></tr>
-          <tr><td><strong>🅓 VMP B escalado 70m²</strong></td><td class="tc">~$45,100</td><td class="tc">~$69,100</td><td class="tc">$24,000/año (solo contenido)</td><td class="tc"><span class="tag">Opción media</span></td></tr>
-        </tbody>
-      </table>
-    </div>
+    <p style="font-size:.68rem;color:var(--g400);margin-top:.5rem;text-align:right">* Estimado escalado. VMP debe cotizar Versión C para 70 m² para confirmar.</p>
   </div>
 </section>
 
 <!-- BANNER 2 -->
 <section class="bg-n">
   <div class="banner">
-    <p class="bq">El hardware de 3LASER a $24,311 + el contenido de VMP a $2,000/mes<br/><span class="hl">es la combinación más eficiente para Eight Academy.</span></p>
-    <p class="bs">Ahorro de ~$20,000 en Año 1 vs VMP A escalado, con igual calidad de contenido</p>
+    <p class="bq">El Proveedor 3 incluye lo que los otros 2 cobran extra:<br/><span class="hl">audio, servidor, software y 40 minutos de contenido base.</span></p>
+    <p class="bs">Eight Academy · Análisis de Inversión · Mayo 2026</p>
   </div>
 </section>
 
-<!-- ═══════════════════ ESPACIO DE DECISIÓN ═══════════════════ -->
+<!-- ═══ SECCIÓN 4: PRESUPUESTO GLOBAL ═══ -->
+<section id="presupuesto" class="sec bg-g">
+  <div class="wrap">
+    <div class="sh rev">
+      <div class="sh-e">04 · Presupuesto Global por Escenario</div>
+      <h2 class="sh-t">El costo real total — 5 escenarios</h2>
+      <p class="sh-s">Todos incluyen obras civiles y eléctricas. El contenido mensual se suma solo si se contrata productora ongoing.</p>
+    </div>
+
+    <div class="g2 rev">
+
+      <!-- ESC A: 3LASER completo -->
+      <div class="bcard">
+        <div class="bcard-head" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7)">
+          <h3 style="color:#92400E">🅐 3LASER Solo + Complementos</h3>
+          <p style="color:var(--amber)">Hardware 3LASER + PC + SW + Audio + Obras</p>
+        </div>
+        <div class="section-divider">COTIZACIÓN + FALTANTES</div>
+        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Cotización 3LASER (c/IVA)<span>8 proyectores + Datapath + Truss</span></div><div class="bline-amount">$24,311</div></div>
+        <div class="bline"><span class="bline-ico">💻</span><div class="bline-label">PC Workstation (faltante)<span>No incluido</span></div><div class="bline-amount">$2,500</div></div>
+        <div class="bline"><span class="bline-ico">🎞️</span><div class="bline-label">Software videomapping (faltante)<span>Licencia</span></div><div class="bline-amount">$1,200</div></div>
+        <div class="bline"><span class="bline-ico">🔊</span><div class="bline-label">Sistema de audio (faltante)<span>7 parlantes + amplificador</span></div><div class="bline-amount">$1,800</div></div>
+        <div class="bline"><span class="bline-ico">👨‍🔧</span><div class="bline-label">Instalación real (reemplaza $80)<span>Calibración + capacitación</span></div><div class="bline-amount">$2,000</div></div>
+        <div class="section-divider">OBRAS</div>
+        <div class="bline"><span class="bline-ico">🏗️</span><div class="bline-label">Obras civiles<span>Estimado promedio</span></div><div class="bline-amount">$2,500</div></div>
+        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Obras eléctricas<span>Estimado promedio</span></div><div class="bline-amount">$2,000</div></div>
+        <div class="section-divider">CONTENIDO (OPCIONAL)</div>
+        <div class="bline"><span class="bline-ico">🎬</span><div class="bline-label">Contenido mensual 12 meses<span>Si se contrata productora ($2,000/mes)</span></div><div class="bline-amount">$24,000</div></div>
+        <div class="total-row"><div class="total-label">Sin contenido</div><div class="total-amount" style="font-size:1.1rem">$36,311</div></div>
+        <div class="total-row" style="border-top:none;padding-top:.25rem;margin-top:0"><div class="total-label">Con contenido año 1</div><div class="total-amount">$60,311</div></div>
+      </div>
+
+      <!-- ESC B: HÍBRIDO -->
+      <div class="bcard">
+        <div class="bcard-head" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5)">
+          <h3 style="color:#065F46">🅑 Híbrido: 3LASER + VMP</h3>
+          <p style="color:var(--green)">Hardware 3LASER + contenido y asesoría VMP</p>
+          <span class="rec-badge">MEJOR RELACIÓN PRECIO/VALOR</span>
+        </div>
+        <div class="section-divider">COTIZACIÓN + COMPLEMENTOS</div>
+        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Cotización 3LASER (c/IVA)<span>8 proyectores + Datapath + Truss</span></div><div class="bline-amount">$24,311</div></div>
+        <div class="bline"><span class="bline-ico">💻</span><div class="bline-label">PC + Software (VMP)<span>Incluido en cotización VMP</span></div><div class="bline-amount">$3,900</div></div>
+        <div class="bline"><span class="bline-ico">🔊</span><div class="bline-label">Sistema audio<span>Faltante</span></div><div class="bline-amount">$1,800</div></div>
+        <div class="bline"><span class="bline-ico">👨‍🔧</span><div class="bline-label">Instalación real + asesoría VMP<span>VMP $1,800 + $2,000 asesoría</span></div><div class="bline-amount">$3,800</div></div>
+        <div class="section-divider">OBRAS</div>
+        <div class="bline"><span class="bline-ico">🏗️</span><div class="bline-label">Obras civiles<span>Estimado</span></div><div class="bline-amount">$2,500</div></div>
+        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Obras eléctricas<span>Estimado</span></div><div class="bline-amount">$2,000</div></div>
+        <div class="section-divider">CONTENIDO VMP</div>
+        <div class="bline"><span class="bline-ico">🎬</span><div class="bline-label">3 videos inmersivos/mes × 12<span>$2,000/mes</span></div><div class="bline-amount">$24,000</div></div>
+        <div class="total-row"><div class="total-label">Sin contenido</div><div class="total-amount" style="font-size:1.1rem">$38,311</div></div>
+        <div class="total-row" style="border-top:none;padding-top:.25rem;margin-top:0"><div class="total-label">Con contenido año 1</div><div class="total-amount">$62,311</div></div>
+      </div>
+
+      <!-- ESC C: PROVEEDOR 3 sin contenido -->
+      <div class="bcard">
+        <div class="bcard-head" style="background:linear-gradient(135deg,var(--teal-bg),#CCFBF1)">
+          <h3 style="color:#0F766E">🅒 Proveedor 3 — Sin suscripción</h3>
+          <p style="color:var(--teal)">Paquete EPSON completo + obras + contenido propio</p>
+          <span class="teal-badge">MÁS COMPLETO SIN MENSUALIDAD</span>
+        </div>
+        <div class="section-divider">COTIZACIÓN COMPLETA</div>
+        <div class="bline included"><span class="bline-ico">🎥</span><div class="bline-label">10× EPSON L210sf Laser<span>✅ Incluido en cotización</span></div><div class="bline-amount">$24,000</div></div>
+        <div class="bline included"><span class="bline-ico">🔌</span><div class="bline-label">HDBaseT + Cat6A + Soportes<span>✅ Incluido</span></div><div class="bline-amount">$8,500</div></div>
+        <div class="bline included"><span class="bline-ico">🔊</span><div class="bline-label">Audio: 7 parlantes + 2 subwoofer<span>✅ Incluido — nadie más lo da</span></div><div class="bline-amount">$1,670</div></div>
+        <div class="bline included"><span class="bline-ico">🖥️</span><div class="bline-label">Servidor GPU 12GB + UPS 3kVA<span>✅ Incluido</span></div><div class="bline-amount">$3,900</div></div>
+        <div class="bline included"><span class="bline-ico">⚙️</span><div class="bline-label">Software + Install + Capacitación<span>✅ Incluido</span></div><div class="bline-amount">$2,700</div></div>
+        <div class="bline included"><span class="bline-ico">🎬</span><div class="bline-label">Contenido base 40 min<span>✅ Incluido ($1,200)</span></div><div class="bline-amount">$1,200</div></div>
+        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Cableado eléctrico básico<span>✅ Incluido ($500)</span></div><div class="bline-amount">$500</div></div>
+        <div style="font-size:.7rem;color:var(--teal);font-weight:700;padding:.5rem 0">SUBTOTAL COTIZACIÓN (c/IVA): $47,288</div>
+        <div class="section-divider">OBRAS ADICIONALES</div>
+        <div class="bline"><span class="bline-ico">🏗️</span><div class="bline-label">Obras civiles<span>Estimado</span></div><div class="bline-amount">$2,500</div></div>
+        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Obras eléctricas complementarias<span>Tablero dedicado + tierra (falta en cotización)</span></div><div class="bline-amount">$1,500</div></div>
+        <div class="section-divider">CONTENIDO (OPCIONAL)</div>
+        <div class="bline"><span class="bline-ico">🎬</span><div class="bline-label">Contenido mensual (si se contrata)<span>Productora externa $2,000/mes × 12</span></div><div class="bline-amount">$24,000</div></div>
+        <div class="total-row"><div class="total-label">Solo hardware + obras</div><div class="total-amount" style="font-size:1.1rem">$51,288</div></div>
+        <div class="total-row" style="border-top:none;padding-top:.25rem;margin-top:0"><div class="total-label">Con contenido mensual año 1</div><div class="total-amount">$75,288</div></div>
+      </div>
+
+      <!-- ESC D: PROVEEDOR 3 + VMP CONTENIDO -->
+      <div class="bcard">
+        <div class="bcard-head" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+          <h3 style="color:#1E40AF">🅓 Proveedor 3 + VMP Contenido ★</h3>
+          <p style="color:var(--blue)">Hardware EPSON completo + contenido profesional VMP</p>
+          <span class="rec-badge" style="background:var(--blue)">★ OPCIÓN RECOMENDADA</span>
+        </div>
+        <div class="section-divider">COTIZACIÓN P3</div>
+        <div class="bline included"><span class="bline-ico">📦</span><div class="bline-label">Paquete completo Proveedor 3 (c/IVA)<span>10 proyect. + audio + servidor + SW + install + contenido base</span></div><div class="bline-amount">$47,288</div></div>
+        <div class="section-divider">OBRAS</div>
+        <div class="bline"><span class="bline-ico">🏗️</span><div class="bline-label">Obras civiles<span>Estimado</span></div><div class="bline-amount">$2,500</div></div>
+        <div class="bline"><span class="bline-ico">⚡</span><div class="bline-label">Obras eléctricas complementarias<span>Tablero + tierra (falta en cotización P3)</span></div><div class="bline-amount">$1,500</div></div>
+        <div class="section-divider">CONTENIDO MENSUAL VMP</div>
+        <div class="bline"><span class="bline-ico">🎬</span><div class="bline-label">VMP: 3 videos inmersivos/mes × 12<span>$2,000/mes — optimizar para 10 proyectores</span></div><div class="bline-amount">$24,000</div></div>
+        <div class="total-row"><div class="total-label">Sin contenido mensual</div><div class="total-amount" style="font-size:1.1rem">$51,288</div></div>
+        <div class="total-row" style="border-top:none;padding-top:.25rem;margin-top:0"><div class="total-label">Con contenido año 1</div><div class="total-amount">$75,288</div></div>
+      </div>
+
+      <!-- ESC E: VMP A escalado -->
+      <div class="bcard">
+        <div class="bcard-head" style="background:linear-gradient(135deg,#FFFBEB,#FEF3C7)">
+          <h3 style="color:#92400E">🅔 VMP A Completo (70m² escalado)</h3>
+          <p style="color:var(--amber)">Solución VMP premium escalada — precio estimado</p>
+          <span class="warn-badge">REQUIERE NUEVA COTIZACIÓN</span>
+        </div>
+        <div class="section-divider">ESTIMADO ESCALADO</div>
+        <div class="bline"><span class="bline-ico">🎞️</span><div class="bline-label">8 Proyect. AA + PC + SW + Install (estimado 70m²)<span>Escalado desde cotización de 40m²</span></div><div class="bline-amount">~$50,000</div></div>
+        <div class="bline"><span class="bline-ico">🎨</span><div class="bline-label">Asesoría técnica VMP<span>Incluida</span></div><div class="bline-amount">$2,000</div></div>
+        <div class="bline"><span class="bline-ico">🔊</span><div class="bline-label">Audio (no incluido en VMP)<span>Adicional</span></div><div class="bline-amount">$1,800</div></div>
+        <div class="section-divider">OBRAS</div>
+        <div class="bline"><span class="bline-ico">🏗️</span><div class="bline-label">Obras civiles + eléctricas<span>Estimado</span></div><div class="bline-amount">$4,500</div></div>
+        <div class="section-divider">CONTENIDO</div>
+        <div class="bline"><span class="bline-ico">🎬</span><div class="bline-label">Contenido 12 meses<span>$2,000/mes</span></div><div class="bline-amount">$24,000</div></div>
+        <div class="total-row"><div class="total-label">Sin contenido</div><div class="total-amount" style="font-size:1.1rem">~$58,300</div></div>
+        <div class="total-row" style="border-top:none;padding-top:.25rem;margin-top:0"><div class="total-label">Con contenido año 1</div><div class="total-amount">~$82,300</div></div>
+      </div>
+
+    </div><!-- /g2 -->
+
+    <!-- TABLA RESUMEN -->
+    <div class="ctbl rev" style="margin-top:2rem">
+      <table>
+        <thead>
+          <tr>
+            <th>Escenario</th>
+            <th class="tc">Solo hardware + obras</th>
+            <th class="tc">Año 1 con contenido</th>
+            <th class="tc">Año 2+ (solo contenido)</th>
+            <th class="tc">¿Audio incluido?</th>
+            <th class="tc">Nota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>🅐 3LASER Solo</strong></td><td class="tc">$36,311</td><td class="tc">$60,311</td><td class="tc">$24,000/año</td><td class="tc lose">❌ Extra $1,800</td><td class="tc"><span class="tag">Presupuesto mínimo</span></td></tr>
+          <tr><td><strong>🅑 Híbrido 3L + VMP</strong></td><td class="tc win">$38,311</td><td class="tc">$62,311</td><td class="tc">$24,000/año</td><td class="tc lose">❌ Extra $1,800</td><td class="tc"><span class="tag tag-g">Precio competitivo</span></td></tr>
+          <tr><td><strong>🅒 P3 Sin mensualidad</strong></td><td class="tc">$51,288</td><td class="tc">$75,288</td><td class="tc">$24,000/año</td><td class="tc win">✅ Incluido</td><td class="tc"><span class="tag tag-t">Más completo</span></td></tr>
+          <tr style="background:#F0FDFA"><td><strong>🅓 P3 + VMP ★</strong></td><td class="tc win">$51,288</td><td class="tc">$75,288</td><td class="tc">$24,000/año</td><td class="tc win">✅ Incluido</td><td class="tc"><span class="tag tag-b">★ RECOMENDADO</span></td></tr>
+          <tr><td><strong>🅔 VMP A escalado</strong></td><td class="tc lose">~$58,300</td><td class="tc lose">~$82,300</td><td class="tc">$24,000/año</td><td class="tc lose">❌ Extra $1,800</td><td class="tc"><span class="tag tag-a">Más costoso</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECCIÓN 5: DECISIÓN ═══ -->
 <section id="decision" class="sec bg-w">
   <div class="wrap">
     <div class="sh rev">
       <div class="sh-e">05 · Espacio de Decisión</div>
-      <h2 class="sh-t">¿Cuál es tu escenario?</h2>
-      <p class="sh-s">Elige la opción que mejor se ajusta a tu presupuesto, timeline y objetivos. Cada una tiene su caso de uso claro.</p>
+      <h2 class="sh-t">¿Cuál es tu caso?</h2>
+      <p class="sh-s">5 escenarios con sus pros, contras y caso de uso ideal. Elige el que mejor se ajusta a tu presupuesto y objetivos.</p>
     </div>
 
     <div class="options-grid rev">
-
       <div class="opt opt-A1">
         <span class="opt-ico">⚡</span>
-        <div class="opt-name">🅐 3LASER Solo</div>
-        <span class="opt-tag" style="background:#FEF3C7;color:#92400E">Presupuesto ajustado</span>
-        <span class="opt-price">$36,611</span>
-        <div style="font-size:.65rem;color:var(--g400);margin-bottom:.3rem">sin contenido</div>
-        <div class="opt-desc">Hardware puro. Compras los proyectores a 3LASER y buscas la solución de contenido por tu cuenta o más adelante.</div>
+        <div class="opt-name">🅐 3LASER</div>
+        <span class="opt-tag" style="background:#FEF3C7;color:#92400E">Mínima inversión</span>
+        <span class="opt-price">$36,311</span>
+        <div style="font-size:.62rem;color:var(--g400);margin-bottom:.3rem">sin contenido</div>
         <div class="opt-pros">
-          <div class="opt-pro"><span>✔</span><span>Menor inversión inicial</span></div>
-          <div class="opt-pro"><span>✔</span><span>Sala lista en 4–6 semanas</span></div>
-          <div class="opt-con"><span>✗</span><span>Sin contenido desde el día 1</span></div>
-          <div class="opt-con"><span>✗</span><span>Requiere contratar técnico y SW por separado</span></div>
+          <div class="opt-pro"><span>✔</span><span>Precio más bajo</span></div>
+          <div class="opt-con"><span>✗</span><span>Sin audio, PC, SW</span></div>
+          <div class="opt-con"><span>✗</span><span>Sin contenido</span></div>
         </div>
       </div>
 
       <div class="opt opt-A2">
-        <span class="opt-ico">⭐</span>
-        <div class="opt-name">🅑 Híbrido (Recomendado)</div>
-        <span class="opt-tag" style="background:var(--green-bg);color:#065F46;border:1px solid var(--green-br)">★ MEJOR OPCIÓN</span>
-        <span class="opt-price">$62,811</span>
-        <div style="font-size:.65rem;color:var(--g400);margin-bottom:.3rem">año 1 completo</div>
-        <div class="opt-desc">Hardware 3LASER (más barato, 8 proyectores) + contenido y asesoría VMP. Lo mejor de ambos mundos.</div>
+        <span class="opt-ico">🔀</span>
+        <div class="opt-name">🅑 Híbrido</div>
+        <span class="opt-tag" style="background:var(--green-bg);color:#065F46;border:1px solid var(--green-br)">Precio / valor</span>
+        <span class="opt-price">$62,311</span>
+        <div style="font-size:.62rem;color:var(--g400);margin-bottom:.3rem">año 1 completo</div>
         <div class="opt-pros">
-          <div class="opt-pro"><span>✔</span><span>8 proyectores reales para 70 m²</span></div>
-          <div class="opt-pro"><span>✔</span><span>Contenido profesional desde mes 1</span></div>
-          <div class="opt-pro"><span>✔</span><span>Ahorra ~$20K vs VMP completo</span></div>
-          <div class="opt-con"><span>✗</span><span>Requiere coordinar dos proveedores</span></div>
+          <div class="opt-pro"><span>✔</span><span>Precio competitivo</span></div>
+          <div class="opt-pro"><span>✔</span><span>Contenido profesional</span></div>
+          <div class="opt-con"><span>✗</span><span>2 proveedores a coordinar</span></div>
+          <div class="opt-con"><span>✗</span><span>Audio extra</span></div>
+        </div>
+      </div>
+
+      <div class="opt opt-C">
+        <span class="opt-ico">🏆</span>
+        <div class="opt-name">🅒 P3 Solo</div>
+        <span class="opt-tag" style="background:var(--teal-bg);color:#0F766E;border:1px solid #5EEAD4">Más completo</span>
+        <span class="opt-price">$51,288</span>
+        <div style="font-size:.62rem;color:var(--g400);margin-bottom:.3rem">sin mensualidad</div>
+        <div class="opt-pros">
+          <div class="opt-pro"><span>✔</span><span>Audio incluido</span></div>
+          <div class="opt-pro"><span>✔</span><span>Servidor + UPS</span></div>
+          <div class="opt-pro"><span>✔</span><span>Un solo proveedor</span></div>
+          <div class="opt-con"><span>✗</span><span>Sin contenido mensual</span></div>
         </div>
       </div>
 
       <div class="opt opt-B">
-        <span class="opt-ico">🎬</span>
-        <div class="opt-name">🅒 VMP A Completo (70 m²)</div>
-        <span class="opt-tag" style="background:var(--blue-bg);color:#1E40AF;border:1px solid #93C5FD">Máxima calidad</span>
-        <span class="opt-price">~$82,600</span>
-        <div style="font-size:.65rem;color:var(--g400);margin-bottom:.3rem">año 1 completo</div>
-        <div class="opt-desc">Un solo proveedor, solución integral premium. Proyectores de vidrio, garantía 3 años. Requiere nueva cotización para 70 m².</div>
+        <span class="opt-ico">⭐</span>
+        <div class="opt-name">🅓 P3 + VMP ★</div>
+        <span class="opt-tag" style="background:var(--blue-bg);color:#1E40AF;border:1px solid #93C5FD">★ Recomendado</span>
+        <span class="opt-price">$75,288</span>
+        <div style="font-size:.62rem;color:var(--g400);margin-bottom:.3rem">año 1 completo</div>
         <div class="opt-pros">
-          <div class="opt-pro"><span>✔</span><span>Un solo interlocutor</span></div>
-          <div class="opt-pro"><span>✔</span><span>Garantía 3 años equipo</span></div>
-          <div class="opt-pro"><span>✔</span><span>−15% desde 2da aula</span></div>
-          <div class="opt-con"><span>✗</span><span>Inversión más alta del mercado</span></div>
-          <div class="opt-con"><span>✗</span><span>Precio no confirmado para 70 m²</span></div>
+          <div class="opt-pro"><span>✔</span><span>Hardware más completo</span></div>
+          <div class="opt-pro"><span>✔</span><span>Audio + servidor incluidos</span></div>
+          <div class="opt-pro"><span>✔</span><span>Contenido profesional ongoing</span></div>
+          <div class="opt-con"><span>✗</span><span>Mayor inversión año 1</span></div>
         </div>
       </div>
 
       <div class="opt opt-H">
-        <span class="opt-ico">⏸️</span>
-        <div class="opt-name">🅓 Esperar + Cotizar</div>
-        <span class="opt-tag" style="background:var(--pur-bg);color:#5B21B6;border:1px solid #C4B5FD">Decisión informada</span>
+        <span class="opt-ico">💬</span>
+        <div class="opt-name">🅔 Negociar</div>
+        <span class="opt-tag" style="background:var(--pur-bg);color:#5B21B6;border:1px solid #C4B5FD">Esperar cotización</span>
         <span class="opt-price">TBD</span>
-        <div style="font-size:.65rem;color:var(--g400);margin-bottom:.3rem">pendiente cotizaciones</div>
-        <div class="opt-desc">Pedir Versión C de VMP ajustada a 70 m² y presupuesto fijo, y cotización de instalación real a 3LASER antes de decidir.</div>
+        <div style="font-size:.62rem;color:var(--g400);margin-bottom:.3rem">pendiente</div>
         <div class="opt-pros">
-          <div class="opt-pro"><span>✔</span><span>Decisión con datos completos</span></div>
-          <div class="opt-pro"><span>✔</span><span>Posibilidad de negociar paquete</span></div>
-          <div class="opt-con"><span>✗</span><span>Retrasa el proyecto 2–3 semanas</span></div>
+          <div class="opt-pro"><span>✔</span><span>Pedir P3 + VMP contenido en paquete</span></div>
+          <div class="opt-pro"><span>✔</span><span>Solicitar VMP Versión C para 70m²</span></div>
+          <div class="opt-con"><span>✗</span><span>Retrasa 1–2 semanas</span></div>
         </div>
       </div>
-
     </div>
 
     <!-- MATRIZ DE DECISIÓN -->
     <div class="decision-box rev">
-      <div class="db-title">Matriz de Decisión</div>
-      <div class="db-sub">Puntuación 1–5 por variable. A mayor número, mejor.</div>
+      <div class="db-title">Matriz de Decisión — 5 variables</div>
+      <div class="db-sub">Puntuación 1–5. Verde con borde = ganador de esa variable.</div>
 
-      <div class="dm-row"><div class="dm-label">📐 Escala real 70 m²</div><div class="dm-bars">
-        <div class="dm-bar winner"><div class="score" style="color:var(--green)">5</div><div class="lbl">3LASER</div></div>
-        <div class="dm-bar winner"><div class="score" style="color:var(--green)">5</div><div class="lbl">HÍBRIDO</div></div>
-        <div class="dm-bar B"><div class="score">3</div><div class="lbl">VMP A</div></div>
-        <div class="dm-bar B"><div class="score">3</div><div class="lbl">VMP B</div></div>
-      </div></div>
+      <div class="dm-row">
+        <div class="dm-label">💰 Precio año 1</div>
+        <div class="dm-bars">
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">3LASER</div></div>
+          <div class="dm-bar A2"><div class="score">4</div><div class="lbl">Híbrido</div></div>
+          <div class="dm-bar C"><div class="score">3</div><div class="lbl">P3 solo</div></div>
+          <div class="dm-bar B"><div class="score">3</div><div class="lbl">P3+VMP★</div></div>
+          <div class="dm-bar A1"><div class="score">2</div><div class="lbl">VMP A</div></div>
+        </div>
+      </div>
 
-      <div class="dm-row"><div class="dm-label">💰 Precio año 1</div><div class="dm-bars">
-        <div class="dm-bar winner"><div class="score" style="color:var(--green)">5</div><div class="lbl">3LASER</div></div>
-        <div class="dm-bar A2"><div class="score">4</div><div class="lbl">HÍBRIDO</div></div>
-        <div class="dm-bar A1"><div class="score">2</div><div class="lbl">VMP A</div></div>
-        <div class="dm-bar A1"><div class="score">3</div><div class="lbl">VMP B</div></div>
-      </div></div>
+      <div class="dm-row">
+        <div class="dm-label">📦 Completitud del paquete</div>
+        <div class="dm-bars">
+          <div class="dm-bar A1"><div class="score">2</div><div class="lbl">3LASER</div></div>
+          <div class="dm-bar A2"><div class="score">3</div><div class="lbl">Híbrido</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">P3 solo</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">P3+VMP★</div></div>
+          <div class="dm-bar B"><div class="score">4</div><div class="lbl">VMP A</div></div>
+        </div>
+      </div>
 
-      <div class="dm-row"><div class="dm-label">🎬 Contenido incluido</div><div class="dm-bars">
-        <div class="dm-bar A1"><div class="score">1</div><div class="lbl">3LASER</div></div>
-        <div class="dm-bar winner"><div class="score" style="color:var(--green)">5</div><div class="lbl">HÍBRIDO</div></div>
-        <div class="dm-bar A2"><div class="score">5</div><div class="lbl">VMP A</div></div>
-        <div class="dm-bar A2"><div class="score">5</div><div class="lbl">VMP B</div></div>
-      </div></div>
+      <div class="dm-row">
+        <div class="dm-label">🎬 Contenido inmersivo</div>
+        <div class="dm-bars">
+          <div class="dm-bar A1"><div class="score">1</div><div class="lbl">3LASER</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">Híbrido</div></div>
+          <div class="dm-bar C"><div class="score">2</div><div class="lbl">P3 solo</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">P3+VMP★</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">VMP A</div></div>
+        </div>
+      </div>
 
-      <div class="dm-row"><div class="dm-label">🔒 Calidad / Durabilidad</div><div class="dm-bars">
-        <div class="dm-bar A1"><div class="score">3</div><div class="lbl">3LASER</div></div>
-        <div class="dm-bar A2"><div class="score">4</div><div class="lbl">HÍBRIDO</div></div>
-        <div class="dm-bar winner"><div class="score" style="color:var(--green)">5</div><div class="lbl">VMP A</div></div>
-        <div class="dm-bar B"><div class="score">3</div><div class="lbl">VMP B</div></div>
-      </div></div>
+      <div class="dm-row">
+        <div class="dm-label">🔒 Calidad técnica</div>
+        <div class="dm-bars">
+          <div class="dm-bar A2"><div class="score">3</div><div class="lbl">3LASER</div></div>
+          <div class="dm-bar A2"><div class="score">4</div><div class="lbl">Híbrido</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">P3 solo</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">P3+VMP★</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">VMP A</div></div>
+        </div>
+      </div>
 
-      <div class="dm-row"><div class="dm-label">📈 Escalabilidad</div><div class="dm-bars">
-        <div class="dm-bar A1"><div class="score">3</div><div class="lbl">3LASER</div></div>
-        <div class="dm-bar A2"><div class="score">4</div><div class="lbl">HÍBRIDO</div></div>
-        <div class="dm-bar winner"><div class="score" style="color:var(--green)">5</div><div class="lbl">VMP A</div></div>
-        <div class="dm-bar A2"><div class="score">4</div><div class="lbl">VMP B</div></div>
-      </div></div>
-
-      <div class="dm-row"><div class="dm-label">⚡ Rapidez de despliegue</div><div class="dm-bars">
-        <div class="dm-bar winner"><div class="score" style="color:var(--green)">5</div><div class="lbl">3LASER</div></div>
-        <div class="dm-bar A2"><div class="score">4</div><div class="lbl">HÍBRIDO</div></div>
-        <div class="dm-bar B"><div class="score">3</div><div class="lbl">VMP A</div></div>
-        <div class="dm-bar B"><div class="score">3</div><div class="lbl">VMP B</div></div>
-      </div></div>
+      <div class="dm-row">
+        <div class="dm-label">⚡ Simplicidad operativa</div>
+        <div class="dm-bars">
+          <div class="dm-bar A1"><div class="score">2</div><div class="lbl">3LASER</div></div>
+          <div class="dm-bar A1"><div class="score">2</div><div class="lbl">Híbrido</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">P3 solo</div></div>
+          <div class="dm-bar C"><div class="score">4</div><div class="lbl">P3+VMP★</div></div>
+          <div class="dm-bar winner"><div class="score">5</div><div class="lbl">VMP A</div></div>
+        </div>
+      </div>
 
       <!-- TOTALES -->
-      <div style="display:grid;grid-template-columns:180px repeat(4,1fr);gap:.75rem;margin-top:1rem;background:var(--navy);border-radius:10px;padding:1rem">
-        <div style="font-size:.72rem;font-weight:800;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center">TOTAL / 30</div>
-        <div style="text-align:center"><div style="font-size:1.8rem;font-weight:900;color:var(--gold)">22</div><div style="font-size:.6rem;color:rgba(255,255,255,.5);text-transform:uppercase">3LASER</div></div>
-        <div style="text-align:center;background:rgba(255,255,255,.08);border-radius:8px;padding:.25rem"><div style="font-size:1.8rem;font-weight:900;color:var(--gold2)">26</div><div style="font-size:.6rem;color:rgba(255,255,255,.6);text-transform:uppercase;font-weight:800">★ HÍBRIDO</div></div>
-        <div style="text-align:center"><div style="font-size:1.8rem;font-weight:900;color:var(--gold)">23</div><div style="font-size:.6rem;color:rgba(255,255,255,.5);text-transform:uppercase">VMP A</div></div>
-        <div style="text-align:center"><div style="font-size:1.8rem;font-weight:900;color:var(--gold)">21</div><div style="font-size:.6rem;color:rgba(255,255,255,.5);text-transform:uppercase">VMP B</div></div>
+      <div style="display:grid;grid-template-columns:170px repeat(5,1fr);gap:.5rem;margin-top:1rem;background:var(--navy);border-radius:10px;padding:1rem">
+        <div style="font-size:.65rem;font-weight:800;color:rgba(255,255,255,.5);text-transform:uppercase;display:flex;align-items:center">TOTAL / 25</div>
+        <div style="text-align:center"><div style="font-size:1.5rem;font-weight:900;color:var(--gold)">13</div><div style="font-size:.55rem;color:rgba(255,255,255,.45);text-transform:uppercase">3LASER</div></div>
+        <div style="text-align:center"><div style="font-size:1.5rem;font-weight:900;color:var(--gold)">18</div><div style="font-size:.55rem;color:rgba(255,255,255,.45);text-transform:uppercase">Híbrido</div></div>
+        <div style="text-align:center"><div style="font-size:1.5rem;font-weight:900;color:#5EEAD4">20</div><div style="font-size:.55rem;color:rgba(255,255,255,.55);text-transform:uppercase">P3 solo</div></div>
+        <div style="text-align:center;background:rgba(255,255,255,.1);border-radius:8px;padding:.25rem"><div style="font-size:1.5rem;font-weight:900;color:var(--gold2)">22</div><div style="font-size:.55rem;color:rgba(255,255,255,.7);text-transform:uppercase;font-weight:800">★ P3+VMP</div></div>
+        <div style="text-align:center"><div style="font-size:1.5rem;font-weight:900;color:var(--gold)">21</div><div style="font-size:.55rem;color:rgba(255,255,255,.45);text-transform:uppercase">VMP A</div></div>
       </div>
     </div>
 
     <!-- VEREDICTO -->
     <div class="verdict rev">
-      <div class="verdict-title">🏆 Veredicto: La Opción Recomendada</div>
+      <div class="verdict-title">🏆 Veredicto: Proveedor 3 + Contenido VMP</div>
       <div class="verdict-text">
-        La opción <strong>Híbrida (🅑)</strong> combina el hardware más competitivo del mercado (3LASER a $24,311 para 70 m² con 8 proyectores) con la solución de contenido profesional de VMP ($2,000/mes). Es la única opción que cubre real­mente tu espacio de 70 m², incluye contenido desde el día 1, y ahorra ~$20,000 vs contratar VMP completo.<br/><br/>
-        <strong>Próximos pasos antes de firmar:</strong> (1) Solicitar a VMP cotización solo de contenido para sistema de 8 proyectores. (2) Solicitar a 3LASER presupuesto de instalación real (no $80). (3) Obtener cotizaciones de obras civiles y eléctricas de un electricista local. (4) Definir si se incluye audio desde el inicio.
+        El <strong>Proveedor 3 (EPSON)</strong> es la cotización más completa: por $47,288 con IVA entrega 10 proyectores, sistema de audio completo (7 parlantes + 2 subwoofers), servidor con GPU y UPS, HDBaseT profesional, software de calibración, instalación real y 40 minutos de contenido base. <strong>Ningún otro proveedor lo da todo en un paquete</strong>.<br/><br/>
+        Complementar con el <strong>fee de contenido VMP</strong> ($2,000/mes) da al proyecto una experiencia inmersiva siempre actualizada sin depender de producción interna. Esta combinación (🅓) logra 22/25 puntos en la matriz y tiene el scope más completo para el año 1.<br/><br/>
+        <strong>Si el presupuesto es el factor principal:</strong> el <strong>Híbrido 🅑</strong> ($62,311 año 1) es la opción más económica que incluye contenido profesional — aunque requiere coordinar dos proveedores y el audio es adicional.
       </div>
       <div class="verdict-rec">
-        💡 Inversión total estimada Año 1 con opción Híbrida: <strong style="margin-left:.4rem">USD $62,811</strong>
-        &nbsp;·&nbsp; Solo hardware + obras: <strong>$38,811</strong>
+        🅓 P3 + VMP: <strong style="margin-left:.4rem">$51,288 hardware+obras</strong>
+        &nbsp;·&nbsp; Año 1 completo: <strong>$75,288</strong>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ PRÓXIMOS PASOS ═══════════════════ -->
+<!-- ═══ PRÓXIMOS PASOS ═══ -->
 <section class="sec bg-g">
   <div class="wrap">
     <div class="sh rev">
       <div class="sh-e">06 · Próximos Pasos</div>
-      <h2 class="sh-t">Antes de firmar cualquier contrato</h2>
+      <h2 class="sh-t">Antes de firmar</h2>
     </div>
-
     <div class="g2 rev">
-      <div class="card gr">
+      <div class="card tl">
         <div class="ci">📋</div>
-        <div class="ct">Solicitar cotizaciones pendientes</div>
-        <div class="cb">
-          <strong>A VMP:</strong> Versión C ajustada a 70 m² (como indica su propia cotización) o cotización solo de contenido para sistema de 8 proyectores.<br/><br/>
-          <strong>A 3LASER:</strong> Cotización de instalación real (el $80 es inviable para 8 proyectores), incluir calibración y videomapping.<br/><br/>
-          <strong>Local:</strong> Cotizaciones de obras civiles y eléctricas a un arquitecto/electricista de confianza.
-        </div>
+        <div class="ct">Solicitar al Proveedor 3: nombre y referencias</div>
+        <div class="cb">La cotización no identifica claramente el proveedor. Pedir: razón social, RUC, proyectos anteriores con EPSON L210sf, garantía oficial EPSON Ecuador, y tiempo de entrega de equipos importados.</div>
       </div>
-      <div class="card gl">
+      <div class="card gr">
         <div class="ci">🤝</div>
-        <div class="ct">Negociar paquete con VMP para el modelo híbrido</div>
-        <div class="cb">
-          VMP ya indica que desde la 2da aula el precio baja ~15%. Si Eight Academy tiene intención de expandir a 3–5 aulas, proponer <strong>contrato marco</strong> desde el inicio. Esto reduce el fee mensual de contenido y puede incluir descuento en asesoría técnica.<br/><br/>
-          Negociar que VMP optimice el contenido para 8 proyectores (no solo para su configuración de 4).
-        </div>
+        <div class="ct">Negociar paquete P3 + VMP</div>
+        <div class="cb">Acercarse a VMP con la propuesta: "Ya tenemos hardware del P3 (EPSON), necesitamos cotización solo de contenido adaptado a 10 proyectores". Negociar si existe descuento por contrato de 12 meses y reutilización de assets para futuras aulas.</div>
       </div>
       <div class="card bl">
-        <div class="ci">🏗️</div>
-        <div class="ct">Definir presupuesto fijo para obras</div>
-        <div class="cb">
-          Las obras civiles y eléctricas son la mayor variable de costo impredecible. Antes de arrancar, visita técnica de un electricista para confirmar si el tablero actual soporta la carga o requiere ampliación.<br/><br/>
-          <strong>Recomendación:</strong> Reservar $6,000 como presupuesto fijo para obras (civiles + eléctricas + audio), suficiente para la mayoría de casos en 70 m².
-        </div>
+        <div class="ci">⚡</div>
+        <div class="ct">Visita técnica eléctrica antes de firmar</div>
+        <div class="cb">La cotización P3 incluye $500 de cableado básico pero no el tablero dedicado ni tierra física. Contratar visita de electricista para confirmar el presupuesto adicional eléctrico ($1,500–$2,000) antes de comprometer el paquete completo.</div>
       </div>
-      <div class="card pu">
+      <div class="card gl">
         <div class="ci">📅</div>
-        <div class="ct">Timeline estimado de implementación</div>
+        <div class="ct">Timeline: 6 semanas al lanzamiento</div>
         <div class="cb">
-          <strong>Semana 1–2:</strong> Cotizaciones finales + firma de contratos<br/>
-          <strong>Semana 2–4:</strong> Obras civiles y eléctricas<br/>
-          <strong>Semana 4–5:</strong> Instalación del sistema AV (3LASER)<br/>
-          <strong>Semana 5–6:</strong> Calibración, mapeo, capacitación<br/>
-          <strong>Semana 7:</strong> Primer contenido VMP entregado y ejecutado<br/>
-          <strong>→ Total: 6–8 semanas al lanzamiento</strong>
+          <strong>Sem 1–2:</strong> Selección final + firma contratos<br/>
+          <strong>Sem 2–3:</strong> Obras civiles y eléctricas<br/>
+          <strong>Sem 3–5:</strong> Llegada equipos + instalación P3<br/>
+          <strong>Sem 5–6:</strong> Calibración + primer contenido VMP<br/>
+          <strong>→ Apertura aula: ~6–7 semanas</strong>
         </div>
       </div>
     </div>
@@ -1046,8 +897,8 @@
 </section>
 
 <footer>
-  <p><strong>Eight Academy · Aula Inmersiva 70 m²</strong> · Análisis de Inversión y Decisión · Mayo 2026</p>
-  <p style="margin-top:.3rem">Cotizaciones: 3LASER (PROFORMA2048) · VMP (#2026-VMP-01) · Elaborado por Tony Cross · Vibramente</p>
+  <p><strong>Eight Academy · Aula Inmersiva 70 m²</strong> · 3 Proveedores Analizados · Mayo 2026</p>
+  <p style="margin-top:.3rem">3LASER (PROFORMA2048) · VMP (#2026-VMP-01) · Proveedor 3 (25_1003 EPSON) · Elaborado por Tony Cross · Vibramente</p>
 </footer>
 
 <script>
